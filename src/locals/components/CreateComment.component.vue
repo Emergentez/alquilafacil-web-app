@@ -1,10 +1,14 @@
 <script setup>
 import StarRating from 'vue3-star-ratings';
+import { useI18n } from 'vue-i18n';
 import { CommentsApiService } from '../services/comments-api.service';
 import { useAuthenticationStore } from '../../auth/services/authentication.store';
 import { useRouter } from 'vue-router';
 import { CommentRequest } from '../model/comment.request';
 import { ref } from 'vue';
+import { MessageSquare, Send, Star as StarIcon } from 'lucide-vue-next';
+
+const { t } = useI18n();
 
 const props = defineProps({
   localId: Number
@@ -25,41 +29,54 @@ const publishComment = async () => {
     rating: Math.floor(rating.value)
   });
     await commentsApiService.create(commentRequest);
-    alert('Comentario publicado correctamente');
+    alert(t('createComment.success'));
     router.push(`/comments/${props.localId}`);
   } catch (error) {
-    alert('Error al publicar el comentario. Por favor, inténtalo de nuevo más tarde.');
+    alert(t('createComment.error'));
   }
 };
 
 </script>
 <template>
-  <div class="flex flex-col w-full gap-4 mt-5 text-(--text-color)">
-    <h3 class="text-2xl font-semibold">Publicar comentario</h3>
+  <div class="flex flex-col w-full gap-6 mt-6 bg-(--background-card-color) p-6 rounded-xl shadow-lg">
+    <div class="flex items-center gap-3">
+      <div class="bg-(--primary-color) rounded-full p-3">
+        <MessageSquare :size="24" class="text-white" />
+      </div>
+      <h3 class="text-2xl font-bold text-(--text-color)">{{ t('createComment.title') }}</h3>
+    </div>
 
-    <label for="commentText" class="text-lg font-medium">Escribe tu comentario:</label>
-    <textarea
-      id="commentText"
-      v-model="text"
-      placeholder="Comparte tu experiencia..."
-      class="w-full p-3 border border-gray-300 rounded-md resize-y min-h-[100px] text-(--text-color)"
-    ></textarea>
+    <div class="flex flex-col gap-2">
+      <label for="commentText" class="text-base font-semibold text-(--text-color)">{{ t('createComment.writeLabel') }}</label>
+      <textarea
+        id="commentText"
+        v-model="text"
+        :placeholder="t('createComment.placeholder')"
+        class="w-full p-4 border-2 border-gray-300 rounded-lg resize-y min-h-[120px] text-(--text-color) bg-(--background-card-color) focus:border-(--primary-color) focus:outline-none"
+      ></textarea>
+    </div>
 
-    <label class="text-lg font-medium">Calificación:</label>
-    <StarRating
-      v-model="rating"
-      :max-rating="5"
-      :increment="1"
-      :star-size="30"
-      inactive-color="#d1d5db"
-      active-color="#fbbf24"
-    />
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center gap-2">
+        <StarIcon :size="20" class="text-(--secondary-color)" />
+        <label class="text-base font-semibold text-(--text-color)">{{ t('createComment.rating') }}</label>
+      </div>
+      <StarRating
+        v-model="rating"
+        :max-rating="5"
+        :increment="1"
+        :star-size="36"
+        inactive-color="#d1d5db"
+        active-color="#fbbf24"
+      />
+    </div>
 
     <button
       @click="publishComment"
-      class="bg-(--secondary-color) rounded-md py-5 text-white text-xl hover:cursor-pointer transition duration-300 ease-in-out"
+      class="bg-(--secondary-color) hover:bg-(--secondary-color-hover) rounded-lg py-4 text-white text-lg font-semibold hover:cursor-pointer transition-colors flex items-center justify-center gap-2"
     >
-      Publicar
+      <Send :size="20" />
+      {{ t('createComment.publishButton') }}
     </button>
   </div>
 </template>

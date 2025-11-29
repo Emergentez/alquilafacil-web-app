@@ -3,6 +3,9 @@
 import { onMounted, ref } from 'vue';
 import { LocalCategoriesApiService } from '../../services/local-categories-api.service';
 import LocalCategoryCardComponent from '../LocalCategoryCard.component.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   localCategoryId: Number
@@ -29,7 +32,7 @@ onMounted(async ()=> {
 </script>
 
 <template>
-  <h1 class="text-3xl text-center font-semibold text-(--text-color)">¿Cuál de estas opciones describe mejor tu espacio?</h1>
+  <h1 class="text-3xl text-center font-semibold text-(--text-color)">{{ t('publishSteps.step3.title') }}</h1>
   <template v-if="isLoaded">
     <div class="grid sm:grid-cols-2 gap-4">
       <LocalCategoryCardComponent
