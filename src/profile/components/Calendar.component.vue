@@ -3,12 +3,14 @@
 import { ScheduleXCalendar } from '@schedule-x/vue';
 import { createCalendar, createViewMonthGrid, createViewWeek, createViewDay } from '@schedule-x/calendar';
 import '@schedule-x/theme-default/dist/calendar.css';
-import { shallowRef, onMounted } from 'vue';
+import { shallowRef, onMounted, watch } from 'vue';
 import { createEventsServicePlugin } from '@schedule-x/events-service';
 import { useRouter } from 'vue-router';
 import { ReservationsApiService } from '../../booking/services/reservations-api.service';
 import { useAuthenticationStore } from '../../auth/services/authentication.store';
+import { useI18n } from 'vue-i18n';
 
+const { t, locale } = useI18n();
 const router = useRouter();
 const authenticationStore = useAuthenticationStore();
 const reservationsApiService = new ReservationsApiService();
@@ -19,16 +21,16 @@ const calendar = shallowRef(createCalendar({
   views: [
     createViewMonthGrid({
       name: 'month',
-      displayName: 'Mes',
+      displayName: t('calendar.month'),
       default: true,
     }),
     createViewWeek({
       name: 'week',
-      displayName: 'Semana',
+      displayName: t('calendar.week'),
     }),
     createViewDay({
       name: 'day',
-      displayName: 'Día',
+      displayName: t('calendar.day'),
     }),
   ],
   selectedDate: new Date().toISOString().split('T')[0],
