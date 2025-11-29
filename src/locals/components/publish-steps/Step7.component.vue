@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   localName: String,
@@ -34,52 +37,52 @@ const removeFeature = (index) => {
 </script>
 
 <template>
-  <h1 class="text-3xl text-center font-semibold text-(--text-color)">Ahora, añade los detalles de tu espacio</h1>
-  <p class="text-lg text-center text-(--text-color)">Los títulos cortos funcionan mejor. No te preocupes, puedes modificarlo más adelante.</p>
+  <h1 class="text-3xl text-center font-semibold text-(--text-color)">{{ t('publishSteps.step7.title') }}</h1>
+  <p class="text-lg text-center text-(--text-color)">{{ t('publishSteps.step7.subtitle') }}</p>
   <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="localName" class="bg-(--background-color) w-22 text-lg font-semibold relative top-4 left-2 px-2">Nombre</label>
+    <label for="localName" class="bg-(--background-color) w-22 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step7.name') }}</label>
     <input
       type="text"
       id="localName"
       :value="props.localName"
       @input="emit('update:localName', $event.target.value)"
       class="border border-gray-300 rounded px-4 py-4 text-(--text-color)"
-      placeholder="Ingresa el nombre de tu local"
+      :placeholder="t('publishSteps.step7.namePlaceholder')"
     />
   </div>
 
   <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="descriptionMessage" class="bg-(--background-color) w-30 text-lg font-semibold relative top-4 left-2 px-2">Descripción</label>
+    <label for="descriptionMessage" class="bg-(--background-color) w-30 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step7.description') }}</label>
     <input
       type="text"
       id="descriptionMessage"
       :value="props.descriptionMessage"
       @input="emit('update:descriptionMessage', $event.target.value)"
       class="border border-gray-300 rounded px-4 py-4 text-(--text-color)"
-      placeholder="Ingresa la descripción de tu local"
+      :placeholder="t('publishSteps.step7.descriptionPlaceholder')"
     />
   </div>
 
   <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="capacity" class="bg-(--background-color) w-16 text-lg font-semibold relative top-4 left-2 px-2">Aforo</label>
+    <label for="capacity" class="bg-(--background-color) w-16 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step7.capacity') }}</label>
     <input
       type="number"
       id="capacity"
       :value="props.capacity"
       @input="emit('update:capacity', $event.target.value)"
       class="border border-gray-300 rounded px-4 py-4 text-(--text-color)"
-      placeholder="Ingresa el aforo"
+      :placeholder="t('publishSteps.step7.capacityPlaceholder')"
       min="1"
     />
   </div>
   <div class="flex flex-col w-full max-w-140 mt-6 text-(--text-color)">
-    <label class="text-lg font-semibold">Características</label>
+    <label class="text-lg font-semibold">{{ t('publishSteps.step7.features') }}</label>
     <div class="flex items-center gap-2 mt-2">
       <input
         v-model="newFeature"
         @keyup.enter="addFeature"
         type="text"
-        placeholder="Agregar característica (Dimensiones del local, servicios, etc.)"
+        :placeholder="t('publishSteps.step7.featuresPlaceholder')"
         class="flex-1 border border-gray-300 rounded px-3 py-2 text-(--text-color)"
       />
       <button
@@ -100,7 +103,7 @@ const removeFeature = (index) => {
         <button
           @click="removeFeature(index)"
           class="text-red-500 hover:text-red-700 text-sm"
-          title="Eliminar"
+          :title="t('publishSteps.step7.delete')"
         >
           🗑️
         </button>

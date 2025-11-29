@@ -1,0 +1,670 @@
+{
+  "common": {
+    "appName": "AlquilaFacil",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "send": "Send",
+    "sending": "Sending...",
+    "editPlaceholder": "Edit"
+  },
+  "editableField": {
+    "edit": "Edit",
+    "save": "Save"
+  },
+  "paypal": {
+    "paymentCompleted": "Payment completed by",
+    "paymentSuccess": "Payment successful!"
+  },
+  "navbar": {
+    "publish": "Publish",
+    "calendar": "Calendar",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "searchPlaceholder": "Search by district..."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "termsAndConditions": "Terms and conditions",
+    "privacyPolicy": "Privacy policy",
+    "contact": "Contact us",
+    "followUs": "Follow us"
+  },
+  "auth": {
+    "signIn": {
+      "title": "SIGN IN",
+      "emailPlaceholder": "Email address",
+      "passwordPlaceholder": "Password",
+      "submitButton": "Sign in",
+      "noAccount": "Don't have an account yet?",
+      "registerButton": "Register",
+      "orSignInWith": "or sign in with:",
+      "errors": {
+        "emailRequired": "Email is required.",
+        "passwordRequired": "Password is required.",
+        "invalidCredentials": "Invalid email or password."
+      }
+    },
+    "signUp": {
+      "title": "REGISTER",
+      "usernamePlaceholder": "Username",
+      "namePlaceholder": "First name",
+      "fatherNamePlaceholder": "Father's last name",
+      "motherNamePlaceholder": "Mother's last name",
+      "phonePlaceholder": "Phone number",
+      "documentPlaceholder": "ID document number",
+      "birthDatePlaceholder": "Date of birth",
+      "emailPlaceholder": "Email address",
+      "passwordPlaceholder": "Password",
+      "confirmPasswordPlaceholder": "Confirm password",
+      "submitButton": "Register now",
+      "hasAccount": "Already have an account?",
+      "loginButton": "Sign in",
+      "orRegisterWith": "or register with:",
+      "termsText": "By registering, you agree to the",
+      "termsLink": "Terms and conditions",
+      "andText": "and the",
+      "privacyLink": "Privacy policy",
+      "captcha": {
+        "title": "Security verification",
+        "placeholder": "Enter the captcha text",
+        "invalid": "Incorrect captcha. Try again.",
+        "regenerate": "Generate new captcha"
+      },
+      "errors": {
+        "usernameRequired": "Username is required.",
+        "nameRequired": "First name is required.",
+        "fatherNameRequired": "Father's last name is required.",
+        "motherNameRequired": "Mother's last name is required.",
+        "phoneRequired": "Phone number is required.",
+        "phoneMinLength": "Phone number must have at least 9 digits.",
+        "documentRequired": "ID document number is required.",
+        "birthDateRequired": "Date of birth is required.",
+        "emailRequired": "Email address is required.",
+        "passwordRequired": "Password is required.",
+        "passwordWeak": "Password must be at least 8 characters, with one uppercase, one lowercase, one number and one symbol.",
+        "confirmPasswordRequired": "Password confirmation is required.",
+        "passwordMismatch": "Passwords do not match.",
+        "termsRequired": "You must accept the terms and conditions.",
+        "captchaInvalid": "Captcha is incorrect.",
+        "generalError": "Registration error. Please try again later."
+      }
+    }
+  },
+  "controlPanel": {
+    "title": "Control Panel",
+    "darkTheme": "Dark theme",
+    "logout": "Log out",
+    "options": {
+      "modifyProfile": "Edit profile",
+      "mySubscription": "My subscription",
+      "publishedSpaces": "Published spaces",
+      "subscriptionManagement": "Subscription management",
+      "favoriteSpaces": "Favorite spaces",
+      "support": "Support",
+      "reportsMade": "Reports made"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "personalInfo": "Personal Information",
+    "contactInfo": "Contact Information",
+    "bankInfo": "Bank Information",
+    "fields": {
+      "username": "Username",
+      "fullName": "Full name",
+      "email": "Email address",
+      "phone": "Phone",
+      "document": "ID document",
+      "birthDate": "Date of birth",
+      "bankName": "Bank name",
+      "accountNumber": "Account number",
+      "cci": "CCI"
+    }
+  },
+  "support": {
+    "title": "Support & Help",
+    "email": {
+      "title": "Email",
+      "description": "Write to us at:"
+    },
+    "phone": {
+      "title": "Phone",
+      "description": "Call us at:"
+    },
+    "contactForm": {
+      "title": "Send us a message",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Briefly describe your inquiry",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us how we can help you...",
+      "submitButton": "Send message",
+      "successMessage": "Message sent successfully. We will contact you soon.",
+      "errorMessage": "Please fill in all fields"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "How do I publish a space?",
+        "answer": "Go to the \"Publish\" section in the main menu and complete the form with your space information. You will need photos, description, price and location."
+      },
+      "q2": {
+        "question": "How does the reservation system work?",
+        "answer": "You can search for spaces by location or category, select the dates you need and make your reservation. You will receive a confirmation by email."
+      },
+      "q3": {
+        "question": "What does the premium subscription include?",
+        "answer": "With the premium subscription you get priority in reservations, priority support and early access to new features."
+      }
+    }
+  },
+  "subscription": {
+    "title": "My Subscription",
+    "currentPlan": "Current plan",
+    "noPlan": "No active subscription",
+    "subscribe": "Subscribe",
+    "renew": "Renew",
+    "cancel": "Cancel subscription",
+    "status": {
+      "active": "Active",
+      "pending": "Pending",
+      "expired": "Expired",
+      "cancelled": "Cancelled"
+    },
+    "plans": {
+      "basic": "Basic",
+      "premium": "Premium",
+      "professional": "Professional"
+    }
+  },
+  "spaces": {
+    "title": "Spaces",
+    "searchPlaceholder": "Search spaces...",
+    "filters": {
+      "title": "Filters",
+      "category": "Category",
+      "priceRange": "Price range",
+      "capacity": "Capacity",
+      "minPrice": "Min price",
+      "maxPrice": "Max price",
+      "apply": "Apply filters",
+      "clear": "Clear filters"
+    },
+    "categories": {
+      "beachHouse": "Beach house",
+      "countryHouse": "Country house",
+      "urbanHouse": "Urban house",
+      "elegantHall": "Elegant hall"
+    },
+    "card": {
+      "perDay": "per day",
+      "capacity": "Capacity",
+      "people": "people",
+      "viewDetails": "View details",
+      "reserve": "Reserve"
+    },
+    "details": {
+      "description": "Description",
+      "amenities": "Amenities",
+      "location": "Location",
+      "policies": "Policies",
+      "reviews": "Reviews",
+      "noReviews": "No reviews yet"
+    },
+    "publish": {
+      "title": "Publish Space",
+      "step1": "Space type",
+      "step2": "Location",
+      "step3": "Basic information",
+      "step4": "Description",
+      "step5": "Photos",
+      "step6": "Amenities",
+      "step7": "Price",
+      "step8": "Rules",
+      "step9": "IoT Configuration",
+      "step10": "Confirmation",
+      "submitButton": "Publish Space",
+      "successMessage": "Space published successfully!",
+      "letsStart": "Let's start",
+      "back": "Back",
+      "next": "Next",
+      "stepOf": "Step {current} of {total}"
+    },
+    "published": {
+      "title": "My Published Spaces",
+      "noSpaces": "You have no published spaces",
+      "publishFirst": "Publish your first space!",
+      "actions": {
+        "edit": "Edit",
+        "monitor": "Monitor",
+        "view": "View"
+      }
+    },
+    "favorites": {
+      "title": "My Favorites",
+      "noFavorites": "You have no favorite spaces",
+      "addFavorites": "Explore and add spaces to your favorites"
+    }
+  },
+  "reservations": {
+    "title": "My Reservations",
+    "noReservations": "You have no reservations",
+    "makeReservation": "Make a reservation",
+    "details": {
+      "title": "Reservation Details",
+      "space": "Space",
+      "dates": "Dates",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "guests": "Guests",
+      "total": "Total",
+      "status": "Status"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "active": "Active",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "actions": {
+      "confirm": "Confirm reservation",
+      "cancel": "Cancel reservation",
+      "contact": "Contact owner"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "noNotifications": "You have no notifications",
+    "noNotificationsHint": "When you receive notifications, they will appear here",
+    "markAsRead": "Mark as read",
+    "markAllAsRead": "Mark all as read",
+    "delete": "Delete",
+    "notification": "notification",
+    "types": {
+      "reservation": "Reservation",
+      "payment": "Payment",
+      "alert": "Alert",
+      "system": "System"
+    }
+  },
+  "calendar": {
+    "title": "My Calendar",
+    "subtitle": "Manage your reservations and availability",
+    "today": "Today",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day",
+    "noEvents": "No scheduled events",
+    "legend": "Legend",
+    "yourReservations": "Your reservations",
+    "spaceReservation": "Your space reservation",
+    "premiumReservation": "Premium reservation"
+  },
+  "comments": {
+    "title": "Comments",
+    "writeComment": "Write a comment...",
+    "submitComment": "Submit comment",
+    "noComments": "Be the first to comment",
+    "rating": "Rating"
+  },
+  "reports": {
+    "title": "Reports Made",
+    "noReports": "You have not made any reports",
+    "makeReport": "Report a problem",
+    "form": {
+      "title": "Report Space",
+      "reason": "Report reason",
+      "description": "Description",
+      "submit": "Submit report"
+    },
+    "status": {
+      "pending": "Pending",
+      "reviewing": "Under review",
+      "resolved": "Resolved",
+      "rejected": "Rejected"
+    }
+  },
+  "monitoring": {
+    "title": "Monitoring Panel",
+    "subtitle": "Real-time sensor and event supervision",
+    "live": "Live",
+    "liveMonitoring": "Live Monitoring",
+    "history": "History",
+    "totalReadings": "Total Readings",
+    "maxCapacity": "Max Capacity",
+    "alertsToday": "Alerts Today",
+    "state": "Status",
+    "active": "Active",
+    "lastActivity": "Last Activity",
+    "lastReadings": "Last 5 readings",
+    "systemNormal": "System Operating Normally",
+    "noIncidentsDetected": "No incidents detected at this location",
+    "sensors": {
+      "occupancy": "Current Occupancy",
+      "occupancyCapacity": "Space capacity",
+      "noise": "Noise Level",
+      "noiseMax": "Maximum noise recorded",
+      "smoke": "Smoke Detector",
+      "smokeStatus": "Detection status",
+      "access": "Restricted Zones",
+      "accessControl": "Access control",
+      "monitoring": "Monitoring",
+      "safe": "Safe",
+      "protected": "Protected",
+      "allGood": "All good",
+      "allSafe": "All safe"
+    },
+    "alerts": {
+      "smokeAlert": "Smoke Alert",
+      "noiseAlert": "Noise Alert",
+      "capacityUpdate": "Occupancy Update",
+      "unauthorizedAccess": "Unauthorized Access"
+    },
+    "status": {
+      "normal": "Normal",
+      "warning": "Warning",
+      "critical": "Critical"
+    },
+    "incidents": {
+      "title": "Incident History",
+      "noIncidents": "No incidents recorded"
+    }
+  },
+  "localDetail": {
+    "maxCapacity": "Maximum capacity",
+    "people": "people",
+    "owner": "Owner",
+    "description": "Description",
+    "features": "Features",
+    "options": "Options",
+    "viewComments": "View comments",
+    "reportSpace": "Report space",
+    "assignEdgeNode": "Assign Edge node",
+    "modifyEdgeNode": "Modify Edge node",
+    "edgeNodeUrl": "Edge node URL",
+    "assignNode": "Assign node",
+    "updateNode": "Update node",
+    "reserveSpace": "Reserve Space",
+    "startDateTime": "Start date and time",
+    "endDateTime": "End date and time",
+    "startDateError": "Date must be greater than or equal to current time",
+    "endDateError": "End date must be after start date",
+    "paymentInfo": "Payment Information",
+    "accountNumber": "Account no.",
+    "total": "Total",
+    "attachVoucher": "Attach voucher",
+    "changeVoucher": "Change voucher",
+    "attached": "Attached",
+    "confirmReservation": "Confirm Reservation",
+    "reservationSuccess": "Reservation completed successfully",
+    "reservationError": "Error making reservation. Please try again later.",
+    "edgeNodeAssigned": "Edge node assigned successfully",
+    "edgeNodeUpdated": "Edge node updated successfully",
+    "edgeNodeError": "An error occurred while assigning/updating the edge node."
+  },
+  "districtSearch": {
+    "title": "Results by District",
+    "searchByLocation": "Search by location:",
+    "spacesFound": "Spaces found",
+    "advancedFilters": "Advanced Filters",
+    "noSpacesFound": "No spaces found",
+    "noSpacesInDistrict": "No spaces available in",
+    "searchWithFilters": "Search with Filters"
+  },
+  "reservationDetails": {
+    "title": "Reservation Details",
+    "reservationSchedule": "Reservation Schedule",
+    "start": "Start",
+    "end": "End",
+    "options": "Options",
+    "viewComments": "View comments",
+    "reportSpace": "Report space",
+    "premiumNotice": "Since it was reserved by a premium user, the reservation schedule cannot be modified.",
+    "modifySchedule": "Modify Schedule",
+    "minutesToPostpone": "Minutes to postpone (10-60)",
+    "postponeReservation": "Postpone Reservation",
+    "paymentVoucher": "Payment Voucher",
+    "cancelReservation": "Cancel Reservation",
+    "noImages": "No images available for this location.",
+    "renter": "Tenant of your space:",
+    "owner": "Owner:",
+    "reservationUpdated": "Reservation updated successfully",
+    "postponeError": "Error postponing reservation. Please try again later.",
+    "reservationCancelled": "Reservation cancelled successfully",
+    "cancelError": "Error cancelling reservation. Please try again later."
+  },
+  "subscriptionPurchase": {
+    "title": "Subscription Purchase",
+    "planSummary": "Plan Summary",
+    "selectedPlan": "Selected plan:",
+    "price": "Price:",
+    "bankAccounts": "Bank Accounts",
+    "payToAccounts": "Make your payment to any of the following accounts:",
+    "bankAccount": "Bank account:",
+    "interbankAccount": "Interbank account:",
+    "paymentVoucher": "Payment Voucher",
+    "toComplete": "To complete your purchase, attach a photo of the payment voucher.",
+    "attachVoucher": "Attach voucher image",
+    "clickToSelect": "Click to select a file",
+    "purchaseSubscription": "Purchase subscription",
+    "voucherValidation": "Your voucher will be validated to complete your subscription purchase",
+    "purchaseError": "Error making subscription purchase"
+  },
+  "filtersPage": {
+    "title": "Customize Your Search",
+    "subtitle": "Find the perfect space with our advanced filters",
+    "category": "Category",
+    "categorySubtitle": "Select the type of space",
+    "capacity": "Capacity",
+    "capacitySubtitle": "How many people will attend?",
+    "selectedFilters": "Selected Filters",
+    "categoryLabel": "Category:",
+    "select": "Select",
+    "people": "people",
+    "applyFilters": "Apply Filters",
+    "capacityOptions": {
+      "intimate": "Intimate",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "veryLarge": "Very Large",
+      "massive": "Massive Event"
+    }
+  },
+  "searchPage": {
+    "title": "Explore Spaces",
+    "subtitle": "Find the perfect place for your event",
+    "availableSpaces": "Available spaces",
+    "advancedFilters": "Advanced Filters"
+  },
+  "filtersSearchPage": {
+    "title": "Search Results",
+    "appliedFilters": "Applied filters:",
+    "spacesFound": "Spaces found",
+    "modifyFilters": "Modify Filters",
+    "noSpacesFound": "No spaces found",
+    "tryAdjustFilters": "Try adjusting the filters to get more results",
+    "changeFilters": "Change Filters",
+    "categoryNotFound": "Category not found"
+  },
+  "updateProfile": {
+    "welcome": "Welcome,",
+    "customizeInfo": "Customize your personal information",
+    "personalInfo": "Personal Information",
+    "name": "Name",
+    "fatherName": "Father's last name",
+    "motherName": "Mother's last name",
+    "dateOfBirth": "Date of birth",
+    "contactInfo": "Contact Information",
+    "phone": "Phone",
+    "documentNumber": "Document number",
+    "bankInfo": "Bank Information",
+    "bankAccount": "Bank account",
+    "interbankAccount": "Interbank account",
+    "saveChanges": "Save all changes",
+    "loadingProfile": "Loading profile...",
+    "profileUpdated": "Profile updated successfully"
+  },
+  "favorites": {
+    "subtitle": "Easily find your ideal space among your favorites",
+    "noFavorites": "You don't have any favorites yet."
+  },
+  "publishedSpaces": {
+    "title": "Published spaces",
+    "noSpaces": "You don't have any published spaces yet.",
+    "perHour": "per hour",
+    "viewDetails": "View details",
+    "monitor": "Monitor"
+  },
+  "reportsMade": {
+    "title": "Reports made",
+    "reportNumber": "Report #",
+    "noReports": "You haven't made any reports."
+  },
+  "profileSubscription": {
+    "title": "Subscription status",
+    "loading": "Loading subscription data...",
+    "getPremium": "Get a premium subscription",
+    "premiumBenefit": "You will have preferences when booking. For example, they won't be able to postpone your reservation time.",
+    "buyNow": "Buy now",
+    "pendingValidation": "Your subscription is pending validation",
+    "plan": "Plan:",
+    "voucherValidating": "Your voucher is being validated to complete your subscription purchase.",
+    "activeSubscription": "Your subscription is active!",
+    "enjoyBenefits": "Enjoy all the premium benefits of your subscription."
+  },
+  "subscriptionsManagement": {
+    "title": "Pending subscriptions control",
+    "loading": "Loading subscriptions...",
+    "voucherAlt": "Payment voucher",
+    "activate": "Activate subscription",
+    "activated": "Activated",
+    "noPending": "No pending subscriptions."
+  },
+  "createComment": {
+    "title": "Post comment",
+    "writeLabel": "Write your comment:",
+    "placeholder": "Share your experience with this space...",
+    "rating": "Rating:",
+    "publishButton": "Post comment",
+    "success": "Comment posted successfully",
+    "error": "Error posting comment. Please try again later."
+  },
+  "publishSteps": {
+    "noBankAccounts": "You don't have any bank accounts registered. Please register a bank account to receive payments for your space reservations.",
+    "step1": {
+      "title": "Getting started with AlquilaFacil is very easy",
+      "subtitle": "Complete the following steps to register your space in the application.",
+      "describe": "1. Describe your space",
+      "describeDesc": "Share some basic details",
+      "standOut": "2. Make it stand out",
+      "standOutDesc": "Add a photo and a title to your space, we'll take care of the rest",
+      "finishPublish": "3. Finish and publish",
+      "finishPublishDesc": "Add the final settings and publish your space"
+    },
+    "step2": {
+      "title": "Step 1: Describe your space",
+      "subtitle": "In this step, we'll ask you what type of property you have. Then, tell us the location and some additional details."
+    },
+    "step3": {
+      "title": "Which of these options best describes your space?"
+    },
+    "step4": {
+      "title": "Confirm your address",
+      "subtitle": "It will help other users find your space easily.",
+      "country": "Country",
+      "countryPlaceholder": "Enter your country",
+      "department": "State/Region",
+      "departmentPlaceholder": "Enter your state/region",
+      "district": "District",
+      "districtPlaceholder": "Enter your district",
+      "address": "Address",
+      "addressPlaceholder": "Enter your address (Example: 123 Main Ave)"
+    },
+    "step5": {
+      "title": "Step 2: Make your space stand out",
+      "subtitle": "In this step, you'll add photos of your space. Then, you'll add a title and description."
+    },
+    "step6": {
+      "title": "Add photos of your space",
+      "subtitle": "Select an image from your gallery to represent it.",
+      "addImage": "Add an image",
+      "selectedImages": "Selected images:"
+    },
+    "step7": {
+      "title": "Now, add details about your space",
+      "subtitle": "Short titles work better. Don't worry, you can change it later.",
+      "name": "Name",
+      "namePlaceholder": "Enter the name of your space",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter the description of your space",
+      "capacity": "Capacity",
+      "capacityPlaceholder": "Enter the capacity",
+      "features": "Features",
+      "featuresPlaceholder": "Add feature (Space dimensions, services, etc.)",
+      "delete": "Delete"
+    },
+    "step8": {
+      "title": "Step 3: Finish and publish",
+      "subtitle": "Finally, you'll set the hourly reservation price and publish your space."
+    },
+    "step9": {
+      "title": "Set a price for your space",
+      "subtitle": "You can change it anytime.",
+      "perHour": "Per hour"
+    },
+    "step10": {
+      "title": "That's it!",
+      "subtitle": "This is what others will see.",
+      "perHour": "/hour",
+      "errorTitle": "Oops!",
+      "errorSubtitle": "Make sure to complete all required fields."
+    }
+  },
+  "commentsPage": {
+    "title": "Space Comments",
+    "comment": "comment",
+    "comments": "comments",
+    "noComments": "No comments yet",
+    "beFirst": "Be the first to leave a comment about this space"
+  },
+  "reportPage": {
+    "title": "Report Space",
+    "reportTitle": "Report title",
+    "reportTitlePlaceholder": "E.g.: Facilities in poor condition",
+    "problemDescription": "Problem description",
+    "problemDescriptionPlaceholder": "Describe in detail the problem or situation you want to report...",
+    "sendReport": "Send Report",
+    "titleRequired": "Title is required.",
+    "descriptionRequired": "Description is required.",
+    "reportSuccess": "Report sent successfully",
+    "reportError": "Error sending report. Please try again later."
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "unauthorized": "Unauthorized",
+    "serverError": "Server error",
+    "networkError": "Connection error",
+    "goHome": "Go to home",
+    "goBack": "Go back",
+    "somethingWrong": "Something went wrong!",
+    "unexpectedError": "We're sorry, an unexpected error has occurred. Please try again or return to the main page."
+  },
+  "language": {
+    "select": "Language",
+    "es": "Spanish",
+    "en": "English"
+  }
+}

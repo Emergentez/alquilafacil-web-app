@@ -1,12 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import FooterComponent from '../../public/components/Footer.component.vue';
 import NavbarComponent from '../../public/components/Navbar.component.vue';
 import { LocalsApiService } from '../services/locals-api.service';
 import { useAuthenticationStore } from '../../auth/services/authentication.store';
 import { ReportRequest } from '../model/report.request';
 import { ReportsApiService } from '../services/reports-api.service';
+import { AlertTriangle, Send, MapPin } from 'lucide-vue-next';
+
+const { t } = useI18n();
 
 const route = useRoute();
 const router = useRouter();
@@ -28,7 +32,7 @@ onMounted(async () => {
     const id = parseInt(route.params.localId);
     local.value = await localsApiService.getById(id);
   } catch (error) {
-    console.error('Error al cargar los datos del local:', error);
+    console.error('Error loading local data:', error);
   }
 });
 
@@ -38,10 +42,10 @@ const publishReport = async () => {
   errors.value.general = '';
 
   if (!title.value.trim()) {
-    errors.value.title = 'El título es obligatorio.';
+    errors.value.title = t('reportPage.titleRequired');
   }
   if (!description.value.trim()) {
-    errors.value.description = 'La descripción es obligatoria.';
+    errors.value.description = t('reportPage.descriptionRequired');
   }
 
   if (errors.value.title || errors.value.description) return;
@@ -54,50 +58,77 @@ const publishReport = async () => {
       description: description.value,
     });
     await reportsApiService.create(reportRequest);
-    alert('Reporte enviado correctamente');
+    alert(t('reportPage.reportSuccess'));
     router.push(`/local/${local.value.id}`);
   } catch (error) {
-    console.error('Error al enviar el reporte:', error);
-    errors.value.general = 'Error al enviar el reporte. Por favor, inténtelo de nuevo más tarde.';
+    console.error('Error sending report:', error);
+    errors.value.general = t('reportPage.reportError');
   }
 };
 </script>
 
 <template>
   <NavbarComponent />
-  <main class="px-4 sm:px-8 md:px-10 lg:px-16 py-10 w-full min-h-[80dvh] flex flex-col gap-6 text-(--text-color)">
-    <h1 class="text-3xl text-center font-semibold">Reportar {{ local.localName }}</h1>
+  <main class="px-4 sm:px-8 md:px-10 lg:px-16 py-10 w-full min-h-[80dvh] flex flex-col gap-6">
+    <!-- Header -->
+    <div class="mb-4">
+      <div class="flex items-center justify-center gap-3 mb-2">
+        <div class="bg-(--primary-color) rounded-full p-3">
+          <AlertTriangle :size="28" class="text-white" />
+        </div>
+        <h1 class="text-4xl font-bold text-(--text-color)">{{ t('reportPage.title') }}</h1>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-(--text-color)">
+        <MapPin :size="18" />
+        <p class="text-lg">{{ local.localName }}</p>
+      </div>
+    </div>
 
-    <div class="max-w-xl mx-auto w-full flex flex-col gap-4">
-      <label class="flex flex-col gap-2">
-        <span class="font-medium text-2xl">Título del reporte</span>
-        <input
-          v-model="title"
-          type="text"
-          placeholder="Escribe el título..."
-          class="border border-gray-300 p-4 rounded text-xl"
-        />
-        <span class="text-red-500 text-sm" v-if="errors.title">{{ errors.title }}</span>
-      </label>
+    <!-- Formulario -->
+    <div class="max-w-2xl mx-auto w-full bg-(--background-card-color) shadow-lg rounded-xl p-6">
+      <div class="flex flex-col gap-5">
+        <label class="flex flex-col gap-2">
+          <span class="font-semibold text-lg text-(--text-color)">{{ t('reportPage.reportTitle') }}</span>
+          <input
+            v-model="title"
+            type="text"
+            :placeholder="t('reportPage.reportTitlePlaceholder')"
+            class="border-2 border-gray-300 focus:border-(--primary-color) focus:outline-none p-3 rounded-lg text-base text-(--text-color) bg-(--background-card-color)"
+          />
+          <span class="text-red-500 text-sm flex items-center gap-1" v-if="errors.title">
+            <AlertTriangle :size="14" />
+            {{ errors.title }}
+          </span>
+        </label>
 
-      <label class="flex flex-col gap-2">
-        <span class="font-medium text-2xl">Descripción del reporte</span>
-        <textarea
-          v-model="description"
-          placeholder="Describe el problema o situación..."
-          class="border border-gray-300 p-4 rounded text-xl min-h-60"
-        ></textarea>
-        <span class="text-red-500 text-sm" v-if="errors.description">{{ errors.description }}</span>
-      </label>
+        <label class="flex flex-col gap-2">
+          <span class="font-semibold text-lg text-(--text-color)">{{ t('reportPage.problemDescription') }}</span>
+          <textarea
+            v-model="description"
+            :placeholder="t('reportPage.problemDescriptionPlaceholder')"
+            class="border-2 border-gray-300 focus:border-(--primary-color) focus:outline-none p-3 rounded-lg text-base min-h-40 text-(--text-color) bg-(--background-card-color)"
+          ></textarea>
+          <span class="text-red-500 text-sm flex items-center gap-1" v-if="errors.description">
+            <AlertTriangle :size="14" />
+            {{ errors.description }}
+          </span>
+        </label>
 
-      <span class="text-red-600" v-if="errors.general">{{ errors.general }}</span>
+        <div v-if="errors.general" class="bg-red-50 border-2 border-red-200 rounded-lg p-3">
+          <p class="text-red-600 text-sm flex items-center gap-2">
+            <AlertTriangle :size="16" />
+            {{ errors.general }}
+          </p>
+        </div>
 
-      <button
-        @click="publishReport"
-        class="bg-(--primary-color) text-white py-4 px-4 rounded hover:bg-(--primary-color-hover) hover:cursor-pointer transition-colors w-full text-xl"
-      >
-        Enviar reporte
-      </button>
+        <button
+          @click="publishReport"
+          class="bg-(--primary-color) text-white py-3 px-6 rounded-lg hover:bg-(--primary-color-hover) hover:cursor-pointer transition-colors w-full text-base font-semibold flex items-center justify-center gap-2 mt-2"
+        >
+          <Send :size="18" />
+          {{ t('reportPage.sendReport') }}
+        </button>
+      </div>
     </div>
   </main>
   <FooterComponent />

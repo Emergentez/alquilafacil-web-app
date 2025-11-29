@@ -2,6 +2,7 @@
 import NavbarComponent from '../../public/components/Navbar.component.vue';
 import { ref, computed, onMounted } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 import { LocalsApiService } from '../services/locals-api.service';
 import { LocalResponse } from '../model/local.response';
 import { ReservationRequest } from '../../booking/models/reservation.request';
@@ -12,6 +13,9 @@ import FooterComponent from '../../public/components/Footer.component.vue';
 import { cloudinaryWidget } from '../../shared/components/cloudinary-widget';
 import { LocalEdgeNodesApiService } from '../../management/services/local-edge-nodes-api.service';
 import { LocalEdgeNodeRequest, LocalEdgeNodeUpdateRequest } from '../../management/model/local-edge-node.request';
+import { MapPin, Users, User, FileText, ListChecks, MessageSquare, AlertTriangle, Camera } from 'lucide-vue-next';
+
+const { t } = useI18n();
 
 const route = useRoute();
 const authenticationStore = useAuthenticationStore();
@@ -63,7 +67,7 @@ const totalAmountToPay = computed(() => {
     const end = new Date(endDate.value);
     const diffInMs = end.getTime() - start.getTime();
     const diffInHours = diffInMs / (1000 * 60 * 60);
-    return Math.round(diffInHours * local.value.price * 100) / 100; // Redondear a 2 decimales
+    return Math.round(diffInHours * local.value.price * 100) / 100;
   }
   return 0.00;
 });
@@ -71,10 +75,10 @@ const totalAmountToPay = computed(() => {
 const openUploadWidget = async () => {
   try {
     const secureUrl = await cloudinaryWidget();
-    console.log("URL segura:", secureUrl);
+    console.log("Secure URL:", secureUrl);
     voucherImageUrl.value = secureUrl[0]
   } catch (error) {
-    console.error("Error al subir imagen:", error);
+    console.error("Error uploading image:", error);
   }
 };
 
@@ -83,15 +87,12 @@ const reserveLocal = async () => {
     const localStartDate = new Date(startDate.value);
     const localEndDate = new Date(endDate.value);
 
-    // Ajustar las fechas a UTC pero sin cambiar la hora (eliminando la zona horaria local)
     const startDateUTC = new Date(localStartDate.getTime() - localStartDate.getTimezoneOffset() * 60000);
     const endDateUTC = new Date(localEndDate.getTime() - localEndDate.getTimezoneOffset() * 60000);
 
-    // Convertir las fechas a formato ISO, pero en UTC sin el ajuste de zona horaria (sin añadir 5 horas)
     const formattedStartDate = startDateUTC.toISOString();
     const formattedEndDate = endDateUTC.toISOString();
 
-    // Crear la solicitud de reserva con las fechas formateadas
     const reservationRequest = new ReservationRequest({
       startDate: formattedStartDate,
       endDate: formattedEndDate,
@@ -102,10 +103,10 @@ const reserveLocal = async () => {
     });
     console.log(reservationRequest);
     await reservationsApiService.create(reservationRequest);
-    alert('Reserva realizada correctamente');
+    alert(t('localDetail.reservationSuccess'));
   } catch (error) {
-    console.error('Error al reservar el local:', error);
-    alert('Error al reservar el local. Por favor, inténtelo de nuevo más tarde.');
+    console.error('Error reserving local:', error);
+    alert(t('localDetail.reservationError'));
   }
 };
 
@@ -118,18 +119,18 @@ const assignOrUpdateEdgeNode = async () => {
         edgeNodeUrl: localEdgeNodeUrl.value,
       });
       await localEdgeNodesApiService.create(resource);
-      alert('Nodo edge asignado correctamente');
+      alert(t('localDetail.edgeNodeAssigned'));
     } else {
       let resource = new LocalEdgeNodeUpdateRequest({
         edgeNodeUrl: localEdgeNodeUrl.value,
       });
       await localEdgeNodesApiService.update(local.value.id, resource);
-      alert('Nodo edge actualizado correctamente');
+      alert(t('localDetail.edgeNodeUpdated'));
     }
     localEdgeNode.value = await localEdgeNodesApiService.getByLocalId(local.value.id);
   } catch (error) {
-    console.error('Error al asignar/actualizar nodo edge:', error);
-    alert('Ocurrió un error al asignar/actualizar el nodo edge.');
+    console.error('Error assigning/updating edge node:', error);
+    alert(t('localDetail.edgeNodeError'));
   }
 };
 
@@ -138,158 +139,274 @@ const assignOrUpdateEdgeNode = async () => {
 
 <template>
   <NavbarComponent />
-  <main class="px-4 sm:px-8 md:px-10 lg:px-16 py-10 w-full min-h-[80dvh] flex flex-col gap-6">
+  <main class="px-4 sm:px-8 md:px-10 lg:px-16 py-10 w-full min-h-[80dvh] bg-gradient-to-br from-gray-50 to-gray-100">
     <template v-if="isLoaded">
-      <div class="flex items-center">
-        <h2 class="text-3xl font-semibold min-w-70 text-(--text-color)">Detalles del local:</h2>
-        <div class="w-full h-2 bg-(--secondary-color) rounded-md ml-4"></div>
+      <!-- Header -->
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ local.localName }}</h1>
+        <div class="flex items-center gap-2 text-gray-600">
+          <MapPin :size="20" class="text-amber-500" />
+          <span class="text-lg">{{ local.address }}</span>
+        </div>
       </div>
-      
-      <div class="w-full flex flex-col md:flex-row gap-6">
+
+      <div class="w-full flex flex-col lg:flex-row gap-6">
         <!-- Imagenes del local -->
-        <div class="w-full md:w-2/3  flex flex-col shadow-lg bg-(--background-card-color) rounded-lg p-4 justify-center">
-          <img :src="selectedPhoto" alt="Imagen del local" class="w-full h-full max-h-160 object-cover bg-(--button-color) rounded-lg" />
-          <div v-if="local.photoUrls.length > 1" class="flex gap-2 mt-4 overflow-x-auto">
-            <img
-              v-for="(photo, index) in local.photoUrls"
-              :key="index"
-              :src="photo"
-              alt="Miniatura"
-              class="w-32 h-24 object-cover rounded cursor-pointer border"
-              :class="{ 'border-(--secondary-color)': selectedPhoto === photo }"
-              @click="selectedPhoto = photo"
-            />
+        <div class="w-full lg:w-2/3 flex flex-col gap-4">
+          <div class="bg-white rounded-xl shadow-lg p-3">
+            <img :src="selectedPhoto" alt="Local image" class="w-full h-[500px] object-cover rounded-lg" />
+          </div>
+
+          <div v-if="local.photoUrls.length > 1" class="bg-white rounded-xl shadow-lg p-3">
+            <div class="flex gap-2 overflow-x-auto pb-1">
+              <img
+                v-for="(photo, index) in local.photoUrls"
+                :key="index"
+                :src="photo"
+                alt="Thumbnail"
+                class="w-36 h-24 object-cover rounded-md cursor-pointer border-2 transition-all hover:scale-105"
+                :class="selectedPhoto === photo ? 'border-amber-500' : 'border-gray-200'"
+                @click="selectedPhoto = photo"
+              />
+            </div>
           </div>
         </div>
 
         <!-- Panel lateral -->
-        <div class="flex flex-col justify-center gap-6 shadow-lg bg-(--background-card-color) rounded-lg p-4 w-full md:w-1/3  overflow-y-auto">
+        <div class="w-full lg:w-1/3 flex flex-col gap-3">
 
-          <!-- Información del local -->
-          <h1 class="text-3xl font-semibold mt-4 text-(--text-color)">{{ local.localName }}</h1>
-          <p class="text-2xl text-(--text-color)">{{ `📍 ${local.address}` }}</p>
-          <p class="text-2xl text-(--text-color)"><span class="font-semibold">👨‍👨‍👧‍👧 Aforo: </span>{{ local.capacity }} personas</p>
-          <p class="text-2xl text-(--text-color)"><span class="font-semibold">👑 Propietario: </span>{{ local.userUsername }}</p>
-          <p class="text-2xl font-semibold text-(--text-color)">🔎 Descripción:</p>
-          <p class="text-xl text-justify text-(--text-color)">{{ local.descriptionMessage }}</p>
-          <div v-if="local.features[0] !== ''" class="flex flex-col gap-2">
-            <p class="text-2xl font-bold text-(--text-color)">📕 Características</p>
-            <ul class="list-disc list-inside text-justify">
-            <li v-for="(feature, index) in local.features" :key="index" class="text-lg text-(--text-color)">{{ feature }}</li>
-          </ul>
+          <!-- Grid: Información y Características -->
+          <div class="grid grid-cols-1 gap-3" :class="local.features[0] !== '' ? 'md:grid-cols-2' : ''">
+            <!-- Columna izquierda -->
+            <div class="flex flex-col gap-3">
+              <!-- Información Principal -->
+              <div class="bg-white rounded-xl shadow-lg p-4">
+                <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-200">
+                  <div class="bg-amber-100 rounded-full p-2">
+                    <Users :size="20" class="text-amber-600" />
+                  </div>
+                  <div>
+                    <p class="text-xs text-gray-500">{{ t('localDetail.maxCapacity') }}</p>
+                    <p class="text-xl font-bold text-gray-800">{{ local.capacity }} {{ t('localDetail.people') }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-2">
+                  <User :size="18" class="text-purple-500 mt-1" />
+                  <div>
+                    <p class="text-xs font-medium text-gray-500">{{ t('localDetail.owner') }}</p>
+                    <p class="text-base text-gray-800">{{ local.userUsername }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Descripción -->
+              <div class="bg-white rounded-xl shadow-lg p-4">
+                <div class="flex items-center gap-2 mb-3">
+                  <FileText :size="18" class="text-emerald-500" />
+                  <h2 class="text-lg font-bold text-gray-800">{{ t('localDetail.description') }}</h2>
+                </div>
+                <p class="text-sm text-gray-700 leading-relaxed">{{ local.descriptionMessage }}</p>
+              </div>
+            </div>
+
+            <!-- Columna derecha: Características -->
+            <div v-if="local.features[0] !== ''" class="bg-white rounded-xl shadow-lg p-4">
+              <div class="flex items-center gap-2 mb-3">
+                <ListChecks :size="18" class="text-indigo-500" />
+                <h2 class="text-lg font-bold text-gray-800">{{ t('localDetail.features') }}</h2>
+              </div>
+              <ul class="space-y-1.5">
+                <li v-for="(feature, index) in local.features" :key="index"
+                    class="flex items-start gap-2 text-sm text-gray-700">
+                  <span class="text-emerald-500">✓</span>
+                  <span>{{ feature }}</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <!-- Opciones -->
-          <h2 class="text-2xl font-semibold text-(--text-color)">Opciones:</h2>
-          <div class="flex flex-col gap-5 text-xl">
-            <RouterLink :to="`/comments/${local.id}`" class="text-(--primary-color) hover:underline">
-              💬 Ver comentarios >
-            </RouterLink>
-            <RouterLink :to="`/report/${local.id}`" class="text-(--primary-color) hover:underline">
-              ⚠ Reportar espacio >
-            </RouterLink>
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-lg font-bold text-gray-800 mb-3">{{ t('localDetail.options') }}</h2>
+            <div class="flex flex-col gap-2">
+              <RouterLink :to="`/comments/${local.id}`"
+                class="flex items-center gap-2 p-2.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors">
+                <MessageSquare :size="18" />
+                <span class="text-sm font-medium">{{ t('localDetail.viewComments') }}</span>
+              </RouterLink>
+              <RouterLink :to="`/report/${local.id}`"
+                class="flex items-center gap-2 p-2.5 rounded-lg bg-red-50 text-red-700 hover:bg-red-100 transition-colors">
+                <AlertTriangle :size="18" />
+                <span class="text-sm font-medium">{{ t('localDetail.reportSpace') }}</span>
+              </RouterLink>
+            </div>
+          </div>
 
-            <div v-if="authenticationStore.userId === 1 || authenticationStore.userId === 2" class="flex flex-col gap-4 mt-4">
-              <h2 class="text-2xl font-semibold text-(--text-color)">
-                {{ localEdgeNode === '' ? 'Asignar nodo Edge' : 'Modificar nodo Edge' }}
-              </h2>
+          <!-- Nodo Edge (Admin) -->
+          <div v-if="authenticationStore.userId === 1 || authenticationStore.userId === 2" class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-lg font-bold text-gray-800 mb-3">
+              {{ localEdgeNode === '' ? t('localDetail.assignEdgeNode') : t('localDetail.modifyEdgeNode') }}
+            </h2>
 
-              <label class="text-xl text-(--text-color)">
-                Url del nodo Edge:
+            <label class="flex flex-col gap-1.5 mb-3">
+              <span class="text-xs font-medium text-gray-700">{{ t('localDetail.edgeNodeUrl') }}</span>
+              <input
+                v-model="localEdgeNodeUrl"
+                type="text"
+                placeholder="http://local-edge-node-url.com"
+                class="w-full p-2.5 border-2 border-gray-300 rounded-lg focus:border-amber-500 focus:outline-none text-sm text-gray-800"
+              />
+            </label>
+
+            <button
+              class="w-full bg-amber-500 hover:bg-amber-600 text-white py-2.5 rounded-lg text-sm font-semibold transition-colors cursor-pointer"
+              @click="assignOrUpdateEdgeNode"
+            >
+              {{ localEdgeNode === '' ? t('localDetail.assignNode') : t('localDetail.updateNode') }}
+            </button>
+          </div>
+
+          <!-- Formulario de Reserva -->
+          <div v-if="authenticationStore.userId !== local.userId" class="bg-white rounded-xl shadow-lg p-4">
+            <h2 class="text-lg font-bold text-gray-800 mb-4">{{ t('localDetail.reserveSpace') }}</h2>
+
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-gray-700">{{ t('localDetail.startDateTime') }}</label>
                 <input
-                  v-model="localEdgeNodeUrl"
-                  type="text"
-                  placeholder="Ej: http://local-edge-node-url.com"
-                  class="w-full p-2 border rounded caret-(--text-color)"
+                  type="datetime-local"
+                  class="w-full p-2.5 border-2 border-gray-300 rounded-lg focus:border-amber-500 focus:outline-none text-sm text-gray-800"
+                  v-model="startDate"
                 />
-              </label>
+                <p v-if="startDate && !isStartDateValid" class="text-red-500 text-xs flex items-center gap-1">
+                  <AlertTriangle :size="12" />
+                  {{ t('localDetail.startDateError') }}
+                </p>
+              </div>
 
+              <div class="flex flex-col gap-1.5">
+                <label class="text-xs font-medium text-gray-700">{{ t('localDetail.endDateTime') }}</label>
+                <input
+                  type="datetime-local"
+                  class="w-full p-2.5 border-2 border-gray-300 rounded-lg focus:border-amber-500 focus:outline-none text-sm text-gray-800"
+                  v-model="endDate"
+                />
+                <p v-if="endDate && !isEndDateValid" class="text-red-500 text-xs flex items-center gap-1">
+                  <AlertTriangle :size="12" />
+                  {{ t('localDetail.endDateError') }}
+                </p>
+              </div>
+
+              <!-- Resumen de pago -->
+              <div v-if="isFormValid" class="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-lg p-3 mt-1">
+                <h3 class="text-base font-bold text-gray-800 mb-2 flex items-center gap-2">
+                  <Users :size="16" class="text-amber-600" />
+                  {{ t('localDetail.paymentInfo') }}
+                </h3>
+                <div class="space-y-1.5 text-xs text-gray-700 mb-3">
+                  <div class="flex justify-between">
+                    <span class="font-medium">{{ t('localDetail.accountNumber') }}</span>
+                    <span class="font-mono">{{ bankAccounts.bankAccountNumber }}</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="font-medium">CCI:</span>
+                    <span class="font-mono">{{ bankAccounts.interbankAccountNumber }}</span>
+                  </div>
+                  <div class="flex justify-between items-center pt-1.5 border-t border-amber-300">
+                    <span class="font-bold text-sm">{{ t('localDetail.total') }}:</span>
+                    <span class="text-xl font-bold text-amber-600">S/. {{ totalAmountToPay.toFixed(2) }}</span>
+                  </div>
+                </div>
+
+                <button @click="openUploadWidget" class="flex flex-col items-center gap-2 p-4 border-2 border-dashed border-amber-300 rounded-lg hover:border-amber-500 hover:bg-white transition-all cursor-pointer w-full">
+                  <Camera :size="32" class="text-amber-600" />
+                  <span class="text-center text-gray-700 text-xs font-medium">
+                    {{ voucherImageUrl ? t('localDetail.changeVoucher') : t('localDetail.attachVoucher') }}
+                  </span>
+                  <span v-if="voucherImageUrl" class="text-xs text-emerald-600">✓ {{ t('localDetail.attached') }}</span>
+                </button>
+              </div>
+
+              <!-- Botón de reserva -->
               <button
-                class="bg-[var(--secondary-color)] text-white py-4 rounded hover:bg-[var(--secondary-color-hover)] hover:cursor-pointer transition duration-100 ease-in-out"
-                @click="assignOrUpdateEdgeNode"
+                :disabled="!isFormValid || !voucherImageUrl"
+                class="w-full bg-amber-500 hover:bg-amber-600 rounded-lg py-3 text-white text-base font-bold cursor-pointer transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-amber-500"
+                @click="reserveLocal"
               >
-                {{ localEdgeNode === '' ? 'Asignar nodo' : 'Actualizar nodo' }}
+                {{ t('localDetail.confirmReservation') }}
               </button>
             </div>
           </div>
-
-          <!-- Fechas -->
-          <div v-if="authenticationStore.userId !== local.userId" class="flex flex-col gap-5 text-(--text-color)">
-            <div class="flex gap-4 justify-between items-center">
-              <p class="text-xl">Fecha y hora de inicio:</p>
-              <input
-                type="datetime-local"
-                class="w-1/2 p-2 border-2 caret-(--text-color) rounded-lg"
-                v-model="startDate"
-              />
-            </div>
-            <p v-if="startDate && !isStartDateValid" class="text-red-500 text-sm">
-              La fecha de inicio debe ser mayor o igual al momento actual.
-            </p>
-
-            <div class="flex gap-4 justify-between items-center">
-              <p class="text-xl">Fecha y hora de fin:</p>
-              <input
-                type="datetime-local"
-                class="w-1/2 p-2 border-2 caret-(--text-color) rounded-lg"
-                v-model="endDate"
-              />
-            </div>
-            <p v-if="endDate && !isEndDateValid" class="text-red-500 text-sm">
-              La fecha de fin debe ser posterior a la fecha de inicio.
-            </p>
-          </div>
-          <div v-if="isFormValid" class="bg-(--background-card-color) text-(--text-color) p-4 rounded-lg mt-4 flex flex-col items-center">
-            <h3 class="text-xl font-semibold mb-2">Cuenta del propietario:</h3>
-            <ul class="flex flex-col gap-2">
-              <p><span class="font-bold">Número de cuenta:</span> {{ bankAccounts.bankAccountNumber }}</p>
-              <p><span class="font-bold">Número de cuenta interbancaria:</span> {{ bankAccounts.interbankAccountNumber }}</p>
-              <p><span class="font-bold">Cantidad a depositar:</span> S/.{{ totalAmountToPay }}</p>
-            </ul>
-            <button @click="openUploadWidget" class="flex flex-col p-10 shadow-2xl hover:cursor-pointer">
-              <img src="/svgs/camera.svg" alt="camera" class="w-1/2 max-w-30 mx-auto mt-4" />
-              <span class="text-center text-(--text-color) text-2xl">Adjuntar imagen del voucher</span>
-            </button>
-          </div>
-          <!-- Botón -->
-          <button v-if="authenticationStore.userId !== local.userId"
-            :disabled="!isFormValid || !voucherImageUrl"
-            class="bg-[var(--secondary-color)] rounded-md py-5 text-white text-xl hover:cursor-pointer hover:bg-[var(--secondary-color-hover)] transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
-            @click="reserveLocal"
-          >
-            Reservar
-          </button>
         </div>
       </div>
     </template>
 
     <!-- Skeleton mientras se carga -->
     <template v-else>
-      <div class="flex items-center gap-4">
-        <div class="h-8 w-1/4 skeleton"></div>
-        <div class="h-2 w-full skeleton rounded-md"></div>
+      <!-- Header skeleton -->
+      <div class="mb-8">
+        <div class="h-10 w-2/3 skeleton mb-2"></div>
+        <div class="h-6 w-1/3 skeleton"></div>
       </div>
 
-      <div class="w-full flex flex-col md:flex-row gap-6">
+      <div class="w-full flex flex-col lg:flex-row gap-6">
         <!-- Skeleton de imagen principal -->
-        <div class="w-full md:w-2/3 flex flex-col shadow-lg bg-(--background-card-color) rounded-lg p-4 gap-4">
-          <!-- Imagen principal del local -->
-          <div class="h-150 w-full skeleton"></div>
+        <div class="w-full lg:w-2/3 flex flex-col gap-4">
+          <div class="bg-white rounded-xl shadow-lg p-3">
+            <div class="h-[500px] w-full skeleton rounded-lg"></div>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-3">
+            <div class="flex gap-2">
+              <div class="w-36 h-24 skeleton rounded-md"></div>
+              <div class="w-36 h-24 skeleton rounded-md"></div>
+              <div class="w-36 h-24 skeleton rounded-md"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Skeleton panel lateral -->
-        <div class="flex flex-col gap-4 shadow-lg bg-(--background-color) rounded-lg p-4 w-full md:w-1/3">
-          <div class="h-8 w-2/3 skeleton"></div>
-          <div class="h-6 w-1/2 skeleton"></div>
-          <div class="h-6 w-3/4 skeleton"></div>
-          <div class="h-6 w-1/2 skeleton"></div>
-          <div class="h-24 w-full skeleton"></div>
+        <div class="w-full lg:w-1/3 flex flex-col gap-3">
+          <!-- Grid skeleton -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <!-- Columna izquierda -->
+            <div class="flex flex-col gap-3">
+              <div class="bg-white rounded-xl shadow-lg p-4">
+                <div class="h-20 w-full skeleton mb-3"></div>
+                <div class="h-12 w-full skeleton"></div>
+              </div>
+              <div class="bg-white rounded-xl shadow-lg p-4">
+                <div class="h-6 w-1/2 skeleton mb-3"></div>
+                <div class="h-4 w-full skeleton mb-2"></div>
+                <div class="h-4 w-full skeleton mb-2"></div>
+                <div class="h-4 w-3/4 skeleton"></div>
+              </div>
+            </div>
 
-          <div class="h-6 w-1/2 skeleton mt-4"></div>
-          <div class="h-6 w-full skeleton"></div>
-          <div class="h-6 w-full skeleton"></div>
+            <!-- Columna derecha -->
+            <div class="bg-white rounded-xl shadow-lg p-4">
+              <div class="h-6 w-2/3 skeleton mb-3"></div>
+              <div class="h-4 w-full skeleton mb-2"></div>
+              <div class="h-4 w-full skeleton mb-2"></div>
+              <div class="h-4 w-full skeleton mb-2"></div>
+              <div class="h-4 w-3/4 skeleton"></div>
+            </div>
+          </div>
 
-          <div class="h-10 w-full skeleton mt-4"></div>
+          <!-- Opciones skeleton -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div class="h-6 w-1/3 skeleton mb-3"></div>
+            <div class="h-10 w-full skeleton mb-2"></div>
+            <div class="h-10 w-full skeleton"></div>
+          </div>
+
+          <!-- Formulario skeleton -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div class="h-6 w-1/2 skeleton mb-4"></div>
+            <div class="h-10 w-full skeleton mb-3"></div>
+            <div class="h-10 w-full skeleton mb-3"></div>
+            <div class="h-12 w-full skeleton"></div>
+          </div>
         </div>
       </div>
     </template>

@@ -1,7 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { SubscriptionsApiService } from '../../subscriptions/services/subscriptions-api.service';
 
+const { t } = useI18n();
 const subscriptionsApiService = new SubscriptionsApiService();
 const subscriptions = ref([]);
 
@@ -41,11 +43,11 @@ const activeSubscriptionStatus = async (subscriptionId) => {
 <template>
   <div class="w-full p-4 flex flex-col gap-10">
     <h2 class="text-xl md:text-4xl font-bold text-center mb-6 text-(--text-color)">
-      Control de suscripciones pendientes
+      {{ t('subscriptionsManagement.title') }}
     </h2>
 
     <div v-if="isLoading" class="text-center text-(--text-color)">
-      Cargando suscripciones...
+      {{ t('subscriptionsManagement.loading') }}
     </div>
 
     <div v-else>
@@ -60,7 +62,7 @@ const activeSubscriptionStatus = async (subscriptionId) => {
               <img
                 v-if="subscription.voucherImageUrl"
                 :src="subscription.voucherImageUrl"
-                alt="Voucher de pago"
+                :alt="t('subscriptionsManagement.voucherAlt')"
                 class="w-full h-40 object-cover rounded-lg cursor-zoom-in"
               />
             </a>
@@ -69,13 +71,13 @@ const activeSubscriptionStatus = async (subscriptionId) => {
               :disabled="subscription.activated"
               class="px-4 py-2 text-white font-medium bg-green-600 rounded-md hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {{ subscription.activated ? 'Activada' : 'Activar suscripción' }}
+              {{ subscription.activated ? t('subscriptionsManagement.activated') : t('subscriptionsManagement.activate') }}
             </button>
           </div>
         </div>
       </div>
       <div v-else class="text-center text-(--text-color)">
-        No hay suscripciones pendientes.
+        {{ t('subscriptionsManagement.noPending') }}
       </div>
     </div>
   </div>

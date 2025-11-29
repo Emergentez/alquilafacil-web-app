@@ -1,0 +1,670 @@
+{
+  "common": {
+    "appName": "AlquilaFacil",
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "confirm": "Confirmar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "close": "Cerrar",
+    "yes": "Si",
+    "no": "No",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "editPlaceholder": "Editar"
+  },
+  "editableField": {
+    "edit": "Editar",
+    "save": "Guardar"
+  },
+  "paypal": {
+    "paymentCompleted": "Pago completado por",
+    "paymentSuccess": "Pago realizado con exito!"
+  },
+  "navbar": {
+    "publish": "Publicar",
+    "calendar": "Calendario",
+    "notifications": "Notificaciones",
+    "profile": "Perfil",
+    "searchPlaceholder": "Buscar por distrito..."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "termsAndConditions": "Terminos y condiciones",
+    "privacyPolicy": "Politica de privacidad",
+    "contact": "Contactanos",
+    "followUs": "Siguenos"
+  },
+  "auth": {
+    "signIn": {
+      "title": "INICIA SESION",
+      "emailPlaceholder": "Correo electronico",
+      "passwordPlaceholder": "Contrasena",
+      "submitButton": "Iniciar sesion",
+      "noAccount": "Aun no tienes una cuenta?",
+      "registerButton": "Registrate",
+      "orSignInWith": "o inicia sesion con:",
+      "errors": {
+        "emailRequired": "El correo es obligatorio.",
+        "passwordRequired": "La contrasena es obligatoria.",
+        "invalidCredentials": "Correo o contrasena incorrectos."
+      }
+    },
+    "signUp": {
+      "title": "REGISTRATE",
+      "usernamePlaceholder": "Nombre de usuario",
+      "namePlaceholder": "Nombre",
+      "fatherNamePlaceholder": "Apellido paterno",
+      "motherNamePlaceholder": "Apellido materno",
+      "phonePlaceholder": "Numero de telefono",
+      "documentPlaceholder": "Numero de documento",
+      "birthDatePlaceholder": "Fecha de nacimiento",
+      "emailPlaceholder": "Correo electronico",
+      "passwordPlaceholder": "Contrasena",
+      "confirmPasswordPlaceholder": "Confirmar contrasena",
+      "submitButton": "Registrate ahora",
+      "hasAccount": "Ya tienes una cuenta?",
+      "loginButton": "Iniciar sesion",
+      "orRegisterWith": "o registrate con:",
+      "termsText": "Al registrarse, acepta los",
+      "termsLink": "Terminos y condiciones",
+      "andText": "y la",
+      "privacyLink": "Politica de privacidad",
+      "captcha": {
+        "title": "Verificacion de seguridad",
+        "placeholder": "Ingresa el texto del captcha",
+        "invalid": "Captcha incorrecto. Intenta de nuevo.",
+        "regenerate": "Generar nuevo captcha"
+      },
+      "errors": {
+        "usernameRequired": "El nombre de usuario es obligatorio.",
+        "nameRequired": "El nombre es obligatorio.",
+        "fatherNameRequired": "El apellido paterno es obligatorio.",
+        "motherNameRequired": "El apellido materno es obligatorio.",
+        "phoneRequired": "El telefono es obligatorio.",
+        "phoneMinLength": "El numero de telefono debe tener al menos 9 digitos.",
+        "documentRequired": "El numero de documento es obligatorio.",
+        "birthDateRequired": "La fecha de nacimiento es obligatoria.",
+        "emailRequired": "El correo electronico es obligatorio.",
+        "passwordRequired": "La contrasena es obligatoria.",
+        "passwordWeak": "La contrasena debe tener al menos 8 caracteres, una mayuscula, una minuscula, un numero y un simbolo.",
+        "confirmPasswordRequired": "La confirmacion de contrasena es obligatoria.",
+        "passwordMismatch": "Las contrasenas no coinciden.",
+        "termsRequired": "Debes aceptar los terminos y condiciones.",
+        "captchaInvalid": "El captcha es incorrecto.",
+        "generalError": "Error al registrarse. Por favor, intentelo de nuevo mas tarde."
+      }
+    }
+  },
+  "controlPanel": {
+    "title": "Panel de Control",
+    "darkTheme": "Tema oscuro",
+    "logout": "Cerrar sesion",
+    "options": {
+      "modifyProfile": "Modificar perfil",
+      "mySubscription": "Mi suscripcion",
+      "publishedSpaces": "Espacios publicados",
+      "subscriptionManagement": "Gestion de suscripciones",
+      "favoriteSpaces": "Espacios favoritos",
+      "support": "Soporte",
+      "reportsMade": "Reportes realizados"
+    }
+  },
+  "profile": {
+    "title": "Mi Perfil",
+    "personalInfo": "Informacion Personal",
+    "contactInfo": "Informacion de Contacto",
+    "bankInfo": "Informacion Bancaria",
+    "fields": {
+      "username": "Nombre de usuario",
+      "fullName": "Nombre completo",
+      "email": "Correo electronico",
+      "phone": "Telefono",
+      "document": "Documento de identidad",
+      "birthDate": "Fecha de nacimiento",
+      "bankName": "Nombre del banco",
+      "accountNumber": "Numero de cuenta",
+      "cci": "CCI"
+    }
+  },
+  "support": {
+    "title": "Soporte y Ayuda",
+    "email": {
+      "title": "Correo Electronico",
+      "description": "Escribenos a:"
+    },
+    "phone": {
+      "title": "Telefono",
+      "description": "Llamanos al:"
+    },
+    "contactForm": {
+      "title": "Envianos un mensaje",
+      "subjectLabel": "Asunto",
+      "subjectPlaceholder": "Describe brevemente tu consulta",
+      "messageLabel": "Mensaje",
+      "messagePlaceholder": "Cuentanos como podemos ayudarte...",
+      "submitButton": "Enviar mensaje",
+      "successMessage": "Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.",
+      "errorMessage": "Por favor completa todos los campos"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": {
+        "question": "Como publico un espacio?",
+        "answer": "Ve a la seccion \"Publicar\" en el menu principal y completa el formulario con la informacion de tu espacio. Necesitaras fotos, descripcion, precio y ubicacion."
+      },
+      "q2": {
+        "question": "Como funciona el sistema de reservas?",
+        "answer": "Puedes buscar espacios por ubicacion o categoria, seleccionar las fechas que necesitas y realizar tu reserva. Recibiras una confirmacion por correo."
+      },
+      "q3": {
+        "question": "Que incluye la suscripcion premium?",
+        "answer": "Con la suscripcion premium obtienes prioridad en las reservas, soporte prioritario y acceso anticipado a nuevas funcionalidades."
+      }
+    }
+  },
+  "subscription": {
+    "title": "Mi Suscripcion",
+    "currentPlan": "Plan actual",
+    "noPlan": "Sin suscripcion activa",
+    "subscribe": "Suscribirse",
+    "renew": "Renovar",
+    "cancel": "Cancelar suscripcion",
+    "status": {
+      "active": "Activa",
+      "pending": "Pendiente",
+      "expired": "Expirada",
+      "cancelled": "Cancelada"
+    },
+    "plans": {
+      "basic": "Basico",
+      "premium": "Premium",
+      "professional": "Profesional"
+    }
+  },
+  "spaces": {
+    "title": "Espacios",
+    "searchPlaceholder": "Buscar espacios...",
+    "filters": {
+      "title": "Filtros",
+      "category": "Categoria",
+      "priceRange": "Rango de precio",
+      "capacity": "Capacidad",
+      "minPrice": "Precio minimo",
+      "maxPrice": "Precio maximo",
+      "apply": "Aplicar filtros",
+      "clear": "Limpiar filtros"
+    },
+    "categories": {
+      "beachHouse": "Casa de playa",
+      "countryHouse": "Casa de campo",
+      "urbanHouse": "Casa urbana",
+      "elegantHall": "Salon elegante"
+    },
+    "card": {
+      "perDay": "por dia",
+      "capacity": "Capacidad",
+      "people": "personas",
+      "viewDetails": "Ver detalles",
+      "reserve": "Reservar"
+    },
+    "details": {
+      "description": "Descripcion",
+      "amenities": "Comodidades",
+      "location": "Ubicacion",
+      "policies": "Politicas",
+      "reviews": "Resenas",
+      "noReviews": "Aun no hay resenas"
+    },
+    "publish": {
+      "title": "Publicar Espacio",
+      "step1": "Tipo de espacio",
+      "step2": "Ubicacion",
+      "step3": "Informacion basica",
+      "step4": "Descripcion",
+      "step5": "Fotos",
+      "step6": "Comodidades",
+      "step7": "Precio",
+      "step8": "Reglas",
+      "step9": "Configuracion IoT",
+      "step10": "Confirmacion",
+      "submitButton": "Publicar Local",
+      "successMessage": "Espacio publicado exitosamente!",
+      "letsStart": "Comencemos",
+      "back": "Atras",
+      "next": "Siguiente",
+      "stepOf": "Paso {current} de {total}"
+    },
+    "published": {
+      "title": "Mis Espacios Publicados",
+      "noSpaces": "No tienes espacios publicados",
+      "publishFirst": "Publica tu primer espacio!",
+      "actions": {
+        "edit": "Editar",
+        "monitor": "Monitorear",
+        "view": "Ver"
+      }
+    },
+    "favorites": {
+      "title": "Mis Favoritos",
+      "noFavorites": "No tienes espacios favoritos",
+      "addFavorites": "Explora y agrega espacios a tus favoritos"
+    }
+  },
+  "reservations": {
+    "title": "Mis Reservas",
+    "noReservations": "No tienes reservas",
+    "makeReservation": "Hacer una reserva",
+    "details": {
+      "title": "Detalles de la Reserva",
+      "space": "Espacio",
+      "dates": "Fechas",
+      "startDate": "Fecha de inicio",
+      "endDate": "Fecha de fin",
+      "guests": "Invitados",
+      "total": "Total",
+      "status": "Estado"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "confirmed": "Confirmada",
+      "active": "Activa",
+      "completed": "Completada",
+      "cancelled": "Cancelada"
+    },
+    "actions": {
+      "confirm": "Confirmar reserva",
+      "cancel": "Cancelar reserva",
+      "contact": "Contactar propietario"
+    }
+  },
+  "notifications": {
+    "title": "Notificaciones",
+    "noNotifications": "No tienes notificaciones",
+    "noNotificationsHint": "Cuando recibas notificaciones, apareceran aqui",
+    "markAsRead": "Marcar como leida",
+    "markAllAsRead": "Marcar todas como leidas",
+    "delete": "Eliminar",
+    "notification": "notificacion",
+    "types": {
+      "reservation": "Reserva",
+      "payment": "Pago",
+      "alert": "Alerta",
+      "system": "Sistema"
+    }
+  },
+  "calendar": {
+    "title": "Mi Calendario",
+    "subtitle": "Gestiona tus reservas y disponibilidad",
+    "today": "Hoy",
+    "month": "Mes",
+    "week": "Semana",
+    "day": "Dia",
+    "noEvents": "No hay eventos programados",
+    "legend": "Leyenda",
+    "yourReservations": "Tus reservas",
+    "spaceReservation": "Reserva de tu espacio",
+    "premiumReservation": "Reserva premium"
+  },
+  "comments": {
+    "title": "Comentarios",
+    "writeComment": "Escribe un comentario...",
+    "submitComment": "Enviar comentario",
+    "noComments": "Se el primero en comentar",
+    "rating": "Calificacion"
+  },
+  "reports": {
+    "title": "Reportes Realizados",
+    "noReports": "No has realizado reportes",
+    "makeReport": "Reportar un problema",
+    "form": {
+      "title": "Reportar Espacio",
+      "reason": "Motivo del reporte",
+      "description": "Descripcion",
+      "submit": "Enviar reporte"
+    },
+    "status": {
+      "pending": "Pendiente",
+      "reviewing": "En revision",
+      "resolved": "Resuelto",
+      "rejected": "Rechazado"
+    }
+  },
+  "monitoring": {
+    "title": "Panel de Monitoreo",
+    "subtitle": "Supervision en tiempo real de sensores y eventos",
+    "live": "En vivo",
+    "liveMonitoring": "Monitoreo en vivo",
+    "history": "Historial",
+    "totalReadings": "Total Lecturas",
+    "maxCapacity": "Capacidad Max.",
+    "alertsToday": "Alertas Hoy",
+    "state": "Estado",
+    "active": "Activo",
+    "lastActivity": "Ultima Actividad",
+    "lastReadings": "Ultimas 5 lecturas",
+    "systemNormal": "Sistema Operando Normalmente",
+    "noIncidentsDetected": "No se han detectado incidencias en este local",
+    "sensors": {
+      "occupancy": "Aforo Actual",
+      "occupancyCapacity": "Capacidad del espacio",
+      "noise": "Nivel de Ruido",
+      "noiseMax": "Ruido maximo registrado",
+      "smoke": "Detector de Humo",
+      "smokeStatus": "Estado de deteccion",
+      "access": "Zonas Restringidas",
+      "accessControl": "Control de accesos",
+      "monitoring": "Monitoreando",
+      "safe": "Seguro",
+      "protected": "Protegido",
+      "allGood": "Todo en orden",
+      "allSafe": "Todo seguro"
+    },
+    "alerts": {
+      "smokeAlert": "Alerta de Humo",
+      "noiseAlert": "Alerta de Ruido",
+      "capacityUpdate": "Actualizacion de Aforo",
+      "unauthorizedAccess": "Acceso No Autorizado"
+    },
+    "status": {
+      "normal": "Normal",
+      "warning": "Advertencia",
+      "critical": "Critico"
+    },
+    "incidents": {
+      "title": "Historial de Incidentes",
+      "noIncidents": "No hay incidentes registrados"
+    }
+  },
+  "localDetail": {
+    "maxCapacity": "Capacidad maxima",
+    "people": "personas",
+    "owner": "Propietario",
+    "description": "Descripcion",
+    "features": "Caracteristicas",
+    "options": "Opciones",
+    "viewComments": "Ver comentarios",
+    "reportSpace": "Reportar espacio",
+    "assignEdgeNode": "Asignar nodo Edge",
+    "modifyEdgeNode": "Modificar nodo Edge",
+    "edgeNodeUrl": "URL del nodo Edge",
+    "assignNode": "Asignar nodo",
+    "updateNode": "Actualizar nodo",
+    "reserveSpace": "Reservar Espacio",
+    "startDateTime": "Fecha y hora de inicio",
+    "endDateTime": "Fecha y hora de fin",
+    "startDateError": "Fecha debe ser mayor o igual al momento actual",
+    "endDateError": "Fecha fin debe ser posterior a la fecha de inicio",
+    "paymentInfo": "Informacion de Pago",
+    "accountNumber": "Nro. cuenta",
+    "total": "Total",
+    "attachVoucher": "Adjuntar voucher",
+    "changeVoucher": "Cambiar voucher",
+    "attached": "Adjuntado",
+    "confirmReservation": "Confirmar Reserva",
+    "reservationSuccess": "Reserva realizada correctamente",
+    "reservationError": "Error al reservar el local. Por favor, intentelo de nuevo mas tarde.",
+    "edgeNodeAssigned": "Nodo edge asignado correctamente",
+    "edgeNodeUpdated": "Nodo edge actualizado correctamente",
+    "edgeNodeError": "Ocurrio un error al asignar/actualizar el nodo edge."
+  },
+  "districtSearch": {
+    "title": "Resultados por Distrito",
+    "searchByLocation": "Busqueda por ubicacion:",
+    "spacesFound": "Espacios encontrados",
+    "advancedFilters": "Filtros Avanzados",
+    "noSpacesFound": "No se encontraron espacios",
+    "noSpacesInDistrict": "No hay espacios disponibles en",
+    "searchWithFilters": "Buscar con Filtros"
+  },
+  "reservationDetails": {
+    "title": "Detalles de la Reserva",
+    "reservationSchedule": "Horario de Reserva",
+    "start": "Inicio",
+    "end": "Fin",
+    "options": "Opciones",
+    "viewComments": "Ver comentarios",
+    "reportSpace": "Reportar espacio",
+    "premiumNotice": "Debido a que lo reservo un usuario premium, no se puede modificar el horario de reserva.",
+    "modifySchedule": "Modificar Horario",
+    "minutesToPostpone": "Minutos a posponer (10-60)",
+    "postponeReservation": "Posponer Reserva",
+    "paymentVoucher": "Voucher de Pago",
+    "cancelReservation": "Cancelar Reserva",
+    "noImages": "No hay imagenes disponibles para este local.",
+    "renter": "Arrendador de tu espacio:",
+    "owner": "Propietario:",
+    "reservationUpdated": "Reserva actualizada correctamente",
+    "postponeError": "Error al posponer la reserva. Por favor, intentelo de nuevo mas tarde.",
+    "reservationCancelled": "Reserva cancelada correctamente",
+    "cancelError": "Error al cancelar la reserva. Por favor, intentelo de nuevo mas tarde."
+  },
+  "subscriptionPurchase": {
+    "title": "Compra de Suscripcion",
+    "planSummary": "Resumen del Plan",
+    "selectedPlan": "Plan seleccionado:",
+    "price": "Precio:",
+    "bankAccounts": "Cuentas Bancarias",
+    "payToAccounts": "Realiza tu pago a cualquiera de las siguientes cuentas:",
+    "bankAccount": "Cuenta bancaria:",
+    "interbankAccount": "Cuenta interbancaria:",
+    "paymentVoucher": "Voucher de Pago",
+    "toComplete": "Para completar tu compra, adjunta la foto del voucher de pago.",
+    "attachVoucher": "Adjuntar imagen del voucher",
+    "clickToSelect": "Haz clic para seleccionar un archivo",
+    "purchaseSubscription": "Comprar suscripcion",
+    "voucherValidation": "Tu voucher sera validada para culminar la compra de tu suscripcion",
+    "purchaseError": "Error al realizar la compra de la suscripcion"
+  },
+  "filtersPage": {
+    "title": "Personaliza Tu Busqueda",
+    "subtitle": "Encuentra el espacio perfecto con nuestros filtros avanzados",
+    "category": "Categoria",
+    "categorySubtitle": "Selecciona el tipo de espacio",
+    "capacity": "Capacidad",
+    "capacitySubtitle": "Cuantas personas asistiran?",
+    "selectedFilters": "Filtros Seleccionados",
+    "categoryLabel": "Categoria:",
+    "select": "Selecciona",
+    "people": "personas",
+    "applyFilters": "Aplicar Filtros",
+    "capacityOptions": {
+      "intimate": "Intimo",
+      "small": "Pequeno",
+      "medium": "Mediano",
+      "large": "Grande",
+      "veryLarge": "Muy Grande",
+      "massive": "Evento Masivo"
+    }
+  },
+  "searchPage": {
+    "title": "Explora Espacios",
+    "subtitle": "Encuentra el lugar perfecto para tu evento",
+    "availableSpaces": "Espacios disponibles",
+    "advancedFilters": "Filtros Avanzados"
+  },
+  "filtersSearchPage": {
+    "title": "Resultados de Busqueda",
+    "appliedFilters": "Filtros aplicados:",
+    "spacesFound": "Espacios encontrados",
+    "modifyFilters": "Modificar Filtros",
+    "noSpacesFound": "No se encontraron espacios",
+    "tryAdjustFilters": "Intenta ajustar los filtros para obtener mas resultados",
+    "changeFilters": "Cambiar Filtros",
+    "categoryNotFound": "Categoria no encontrada"
+  },
+  "updateProfile": {
+    "welcome": "Bienvenido,",
+    "customizeInfo": "Personaliza tu informacion personal",
+    "personalInfo": "Informacion Personal",
+    "name": "Nombre",
+    "fatherName": "Apellido paterno",
+    "motherName": "Apellido materno",
+    "dateOfBirth": "Fecha de nacimiento",
+    "contactInfo": "Informacion de Contacto",
+    "phone": "Telefono",
+    "documentNumber": "Numero de documento",
+    "bankInfo": "Informacion Bancaria",
+    "bankAccount": "Cuenta bancaria",
+    "interbankAccount": "Cuenta interbancaria",
+    "saveChanges": "Guardar todos los cambios",
+    "loadingProfile": "Cargando perfil...",
+    "profileUpdated": "Perfil actualizado correctamente"
+  },
+  "favorites": {
+    "subtitle": "Encuentra con facilidad tu espacio ideal entre tus favoritos",
+    "noFavorites": "No tienes favoritos aun."
+  },
+  "publishedSpaces": {
+    "title": "Espacios publicados",
+    "noSpaces": "No tienes espacios publicados aun.",
+    "perHour": "por hora",
+    "viewDetails": "Ver detalles",
+    "monitor": "Monitorear"
+  },
+  "reportsMade": {
+    "title": "Reportes realizados",
+    "reportNumber": "Reporte #",
+    "noReports": "No tienes reportes realizados."
+  },
+  "profileSubscription": {
+    "title": "Estado de suscripcion",
+    "loading": "Cargando datos de suscripcion...",
+    "getPremium": "Obten una suscripcion premium",
+    "premiumBenefit": "Tendras preferencias al momento de reservar. Por ejemplo, no podran posponer tu horario de reserva.",
+    "buyNow": "Comprar ahora",
+    "pendingValidation": "Tu suscripcion esta pendiente de validacion",
+    "plan": "Plan:",
+    "voucherValidating": "Tu voucher esta siendo validado para culminar la compra de tu suscripcion.",
+    "activeSubscription": "Tu suscripcion esta activa!",
+    "enjoyBenefits": "Disfruta de todos los beneficios premium de tu suscripcion."
+  },
+  "subscriptionsManagement": {
+    "title": "Control de suscripciones pendientes",
+    "loading": "Cargando suscripciones...",
+    "voucherAlt": "Voucher de pago",
+    "activate": "Activar suscripcion",
+    "activated": "Activada",
+    "noPending": "No hay suscripciones pendientes."
+  },
+  "createComment": {
+    "title": "Publicar comentario",
+    "writeLabel": "Escribe tu comentario:",
+    "placeholder": "Comparte tu experiencia con este espacio...",
+    "rating": "Calificacion:",
+    "publishButton": "Publicar comentario",
+    "success": "Comentario publicado correctamente",
+    "error": "Error al publicar el comentario. Por favor, intentalo de nuevo mas tarde."
+  },
+  "publishSteps": {
+    "noBankAccounts": "No tienes cuentas bancarias registradas. Por favor, registra una cuenta bancaria para poder recibir pagos por la reserva de tu local.",
+    "step1": {
+      "title": "Empezar a usar AlquilaFacil es muy sencillo",
+      "subtitle": "Completa los siguientes pasos para registrar tu espacio en la aplicacion.",
+      "describe": "1. Describe tu espacio",
+      "describeDesc": "Comparte algunos datos basicos",
+      "standOut": "2. Haz que destaque",
+      "standOutDesc": "Agrega una foto y un titulo a tu espacio, nosotros nos encargamos del resto",
+      "finishPublish": "3. Terminar y publicar",
+      "finishPublishDesc": "Agrega las ultimas configuraciones y publica tu espacio"
+    },
+    "step2": {
+      "title": "Paso 1: Describe tu espacio",
+      "subtitle": "En este paso, te preguntaremos que tipo de propiedad tienes. A continuacion, indicanos la ubicacion y algunos detalles mas."
+    },
+    "step3": {
+      "title": "Cual de estas opciones describe mejor tu espacio?"
+    },
+    "step4": {
+      "title": "Confirma tu direccion",
+      "subtitle": "Sera de utilidad para que otros usuarios puedan encontrar tu espacio con facilidad.",
+      "country": "Pais",
+      "countryPlaceholder": "Ingresa tu pais",
+      "department": "Departamento",
+      "departmentPlaceholder": "Ingresa tu departamento",
+      "district": "Distrito",
+      "districtPlaceholder": "Ingresa tu distrito",
+      "address": "Direccion",
+      "addressPlaceholder": "Ingresa tu direccion (Ejemplo: Av. Principal 123)"
+    },
+    "step5": {
+      "title": "Paso 2: Haz que tu espacio destaque",
+      "subtitle": "En este paso, deberas agregar la foto de tu espacio. Luego, le anadiras un titulo y una descripcion."
+    },
+    "step6": {
+      "title": "Agrega fotos de tu espacio",
+      "subtitle": "Selecciona una imagen de tu galeria para que represente.",
+      "addImage": "Anadir una imagen",
+      "selectedImages": "Imagenes seleccionadas:"
+    },
+    "step7": {
+      "title": "Ahora, anade los detalles de tu espacio",
+      "subtitle": "Los titulos cortos funcionan mejor. No te preocupes, puedes modificarlo mas adelante.",
+      "name": "Nombre",
+      "namePlaceholder": "Ingresa el nombre de tu local",
+      "description": "Descripcion",
+      "descriptionPlaceholder": "Ingresa la descripcion de tu local",
+      "capacity": "Aforo",
+      "capacityPlaceholder": "Ingresa el aforo",
+      "features": "Caracteristicas",
+      "featuresPlaceholder": "Agregar caracteristica (Dimensiones del local, servicios, etc.)",
+      "delete": "Eliminar"
+    },
+    "step8": {
+      "title": "Paso 3: Terminar y publicar",
+      "subtitle": "Por ultimo, vas a elegir el precio por hora de reserva y publicar tu espacio."
+    },
+    "step9": {
+      "title": "Ponle un precio a tu espacio",
+      "subtitle": "Podras cambiarlo en cualquier momento.",
+      "perHour": "Por hora"
+    },
+    "step10": {
+      "title": "Es todo!",
+      "subtitle": "Esto es lo que veran los demas.",
+      "perHour": "/hora",
+      "errorTitle": "Ups!",
+      "errorSubtitle": "Asegurate de completar todos los campos necesarios."
+    }
+  },
+  "commentsPage": {
+    "title": "Comentarios del Espacio",
+    "comment": "comentario",
+    "comments": "comentarios",
+    "noComments": "No hay comentarios aun",
+    "beFirst": "Se el primero en dejar un comentario sobre este espacio"
+  },
+  "reportPage": {
+    "title": "Reportar Espacio",
+    "reportTitle": "Titulo del reporte",
+    "reportTitlePlaceholder": "Ej: Instalaciones en mal estado",
+    "problemDescription": "Descripcion del problema",
+    "problemDescriptionPlaceholder": "Describe detalladamente el problema o situacion que deseas reportar...",
+    "sendReport": "Enviar Reporte",
+    "titleRequired": "El titulo es obligatorio.",
+    "descriptionRequired": "La descripcion es obligatoria.",
+    "reportSuccess": "Reporte enviado correctamente",
+    "reportError": "Error al enviar el reporte. Por favor, intentelo de nuevo mas tarde."
+  },
+  "errors": {
+    "notFound": "Pagina no encontrada",
+    "unauthorized": "No autorizado",
+    "serverError": "Error del servidor",
+    "networkError": "Error de conexion",
+    "goHome": "Ir al inicio",
+    "goBack": "Volver atras",
+    "somethingWrong": "Algo salio mal!",
+    "unexpectedError": "Lo sentimos, ha ocurrido un error inesperado. Por favor, intenta nuevamente o regresa a la pagina principal."
+  },
+  "language": {
+    "select": "Idioma",
+    "es": "Espanol",
+    "en": "Ingles"
+  }
+}
