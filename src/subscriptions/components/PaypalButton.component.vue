@@ -1,5 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
   price: Number
@@ -30,13 +33,13 @@ const setLoaded = () => {
       onApprove: async (data, actions) => {
         const details = await actions.order.capture();
         paidFor.value = true;
-        alert('Pago completado por ' + details.payer.name.given_name);
+        alert(t('paypal.paymentCompleted') + ' ' + details.payer.name.given_name);
       },
       onError: (err) => {
         console.error('Error en el pago', err);
       }
     })
-    .render(paypalButton.value); // 👈 usar la ref directamente
+    .render(paypalButton.value);
 };
 
 onMounted(() => {
@@ -52,8 +55,8 @@ onMounted(() => {
   <div>
     <!-- PayPal button -->
     <div ref="paypalButton" class="w-full"></div>
-    
+
     <!-- Mensaje post-pago -->
-    <p v-if="paidFor" class="text-green-600 mt-2">¡Pago realizado con éxito!</p>
+    <p v-if="paidFor" class="text-green-600 mt-2">{{ t('paypal.paymentSuccess') }}</p>
   </div>
 </template>

@@ -10,6 +10,10 @@ import { SubscriptionsApiService } from '../services/subscriptions-api.service';
 import { SubscriptionRequest } from '../model/subscription.request';
 import { useAuthenticationStore } from '../../auth/services/authentication.store';
 import { cloudinaryWidget } from '../../shared/components/cloudinary-widget';
+import { CreditCard, Building2, Upload, ShoppingCart } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const route = useRoute();
 const router = useRouter();
@@ -46,10 +50,10 @@ const purchaseSubscription = async () => {
       voucherImageUrl: voucherImageUrl.value,
     });
     await subscriptionsApiService.create(subscriptionRequest);
-    alert('Tu voucher será validada para culminar la compra de tu suscripción');
+    alert(t('subscriptionPurchase.voucherValidation'));
     router.push('/');
   } catch (error) {
-    alert('Error al realizar la compra de la suscripción:', error);
+    alert(t('subscriptionPurchase.purchaseError'));
   }
 };
 
@@ -57,28 +61,73 @@ const purchaseSubscription = async () => {
 
 <template>
   <NavbarComponent />
-  <main class="flex flex-col justify-center items-center gap-4 w-full h-full p-4 sm:p-8 md:p-10 lg:p-16 text-(--text-color)">
-    <h1 class="text-3xl text-center font-semibold">Compra de suscripción</h1>
-    <p class="text-lg text-center">Para poder realizar la compra del plan, adjunta la foto del voucher de pago.</p>
-    <p class="text-lg text-center">El plan seleccionado es: {{ plan.name }}</p>
-    <p class="text-xl text-center font-semibold">El precio a pagar por este plan es de S/.{{ plan.price }}</p>
-    <p class="text-lg text-center">Puedes realizar el pago a las siguientes cuentas bancarias:</p>
-    <ul>
-      <li class="text-xl font-semibold">Cuenta bancaria: {{ bankAccounts.bankAccountNumber }}</li>
-      <li class="text-xl font-semibold">Cuenta interbancaria: {{ bankAccounts.interbankAccountNumber }}</li>
-    </ul>
-    <div class="flex flex-col gap-8 justify-center mt-6">
-      <button @click="openUploadWidget" class="flex flex-col p-10 shadow-xl hover:cursor-pointer">
-        <img src="/svgs/camera.svg" alt="camera" class="w-1/2 max-w-30 mx-auto mt-4" />
-        <span class="text-center text-(--text-color) text-2xl">Adjuntar imagen del voucher</span>
-      </button>
-      <button
-        :disabled="!voucherImageUrl"
-        class="bg-(--secondary-color) rounded-md py-5 text-white text-xl hover:cursor-pointer hover:bg-(--secondary-color-hover) transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
-        @click="purchaseSubscription"
-      >
-      Comprar suscripción
-      </button>
+  <main class="flex flex-col items-center gap-6 w-full min-h-[80dvh] px-4 sm:px-8 md:px-10 lg:px-16 py-10">
+    <!-- Header -->
+    <div class="mb-4">
+      <div class="flex items-center justify-center gap-3">
+        <div class="bg-(--primary-color) rounded-full p-3">
+          <CreditCard :size="28" class="text-white" />
+        </div>
+        <h1 class="text-4xl font-bold text-(--text-color)">{{ t('subscriptionPurchase.title') }}</h1>
+      </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="max-w-3xl w-full flex flex-col gap-6">
+      <!-- Plan info -->
+      <div class="bg-(--background-card-color) shadow-lg rounded-xl p-6">
+        <h2 class="text-2xl font-bold text-(--text-color) mb-4">{{ t('subscriptionPurchase.planSummary') }}</h2>
+        <div class="flex flex-col gap-3">
+          <div class="flex justify-between items-center">
+            <span class="text-(--text-color)">{{ t('subscriptionPurchase.selectedPlan') }}</span>
+            <span class="text-lg font-semibold text-(--text-color)">{{ plan.name }}</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-(--text-color)">{{ t('subscriptionPurchase.price') }}</span>
+            <span class="text-2xl font-bold text-(--secondary-color)">S/. {{ plan.price }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bank accounts -->
+      <div class="bg-(--background-card-color) shadow-lg rounded-xl p-6">
+        <div class="flex items-center gap-2 mb-4">
+          <Building2 :size="24" class="text-(--primary-color)" />
+          <h2 class="text-2xl font-bold text-(--text-color)">{{ t('subscriptionPurchase.bankAccounts') }}</h2>
+        </div>
+        <p class="text-(--text-color) mb-4">{{ t('subscriptionPurchase.payToAccounts') }}</p>
+        <div class="flex flex-col gap-3 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-(--text-color)">{{ t('subscriptionPurchase.bankAccount') }}</span>
+            <span class="text-(--text-color)">{{ bankAccounts.bankAccountNumber }}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-(--text-color)">{{ t('subscriptionPurchase.interbankAccount') }}</span>
+            <span class="text-(--text-color)">{{ bankAccounts.interbankAccountNumber }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload voucher -->
+      <div class="bg-(--background-card-color) shadow-lg rounded-xl p-6">
+        <h2 class="text-2xl font-bold text-(--text-color) mb-4">{{ t('subscriptionPurchase.paymentVoucher') }}</h2>
+        <p class="text-(--text-color) mb-4">{{ t('subscriptionPurchase.toComplete') }}</p>
+
+        <button @click="openUploadWidget" class="w-full border-2 border-dashed border-(--primary-color) rounded-xl p-8 hover:bg-(--text-button-color) transition-colors flex flex-col items-center gap-3">
+          <Upload :size="48" class="text-(--primary-color)" />
+          <span class="text-lg font-semibold text-(--text-color)">{{ t('subscriptionPurchase.attachVoucher') }}</span>
+          <span class="text-sm text-gray-500">{{ t('subscriptionPurchase.clickToSelect') }}</span>
+        </button>
+
+        <button
+          :disabled="!voucherImageUrl"
+          class="w-full mt-6 bg-(--secondary-color) rounded-lg py-4 text-white text-lg font-semibold hover:cursor-pointer hover:bg-(--secondary-color-hover) transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          @click="purchaseSubscription"
+        >
+          <ShoppingCart :size="20" />
+          {{ t('subscriptionPurchase.purchaseSubscription') }}
+        </button>
+      </div>
     </div>
   </main>
   <FooterComponent />
