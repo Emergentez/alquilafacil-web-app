@@ -13,4 +13,12 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: [
+      'localhost',
+      'application.canadacentral.cloudapp.azure.com'
+    ]
+  }
 })
