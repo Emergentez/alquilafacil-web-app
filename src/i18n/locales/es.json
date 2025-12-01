@@ -13,7 +13,7 @@
     "search": "Buscar",
     "filter": "Filtrar",
     "close": "Cerrar",
-    "yes": "Si",
+    "yes": "Sí",
     "no": "No",
     "send": "Enviar",
     "sending": "Enviando...",
@@ -25,7 +25,7 @@
   },
   "paypal": {
     "paymentCompleted": "Pago completado por",
-    "paymentSuccess": "Pago realizado con exito!"
+    "paymentSuccess": "¡Pago realizado con éxito!"
   },
   "navbar": {
     "publish": "Publicar",
@@ -36,48 +36,48 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados",
-    "termsAndConditions": "Terminos y condiciones",
-    "privacyPolicy": "Politica de privacidad",
-    "contact": "Contactanos",
-    "followUs": "Siguenos"
+    "termsAndConditions": "Términos y condiciones",
+    "privacyPolicy": "Política de privacidad",
+    "contact": "Contáctanos",
+    "followUs": "Síguenos"
   },
   "auth": {
     "signIn": {
-      "title": "INICIA SESION",
-      "emailPlaceholder": "Correo electronico",
-      "passwordPlaceholder": "Contrasena",
-      "submitButton": "Iniciar sesion",
-      "noAccount": "Aun no tienes una cuenta?",
-      "registerButton": "Registrate",
-      "orSignInWith": "o inicia sesion con:",
+      "title": "INICIA SESIÓN",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "submitButton": "Iniciar sesión",
+      "noAccount": "¿Aún no tienes una cuenta?",
+      "registerButton": "Regístrate",
+      "orSignInWith": "o inicia sesión con:",
       "errors": {
         "emailRequired": "El correo es obligatorio.",
-        "passwordRequired": "La contrasena es obligatoria.",
-        "invalidCredentials": "Correo o contrasena incorrectos."
+        "passwordRequired": "La contraseña es obligatoria.",
+        "invalidCredentials": "Correo o contraseña incorrectos."
       }
     },
     "signUp": {
-      "title": "REGISTRATE",
+      "title": "REGÍSTRATE",
       "usernamePlaceholder": "Nombre de usuario",
       "namePlaceholder": "Nombre",
       "fatherNamePlaceholder": "Apellido paterno",
       "motherNamePlaceholder": "Apellido materno",
-      "phonePlaceholder": "Numero de telefono",
-      "documentPlaceholder": "Numero de documento",
+      "phonePlaceholder": "Número de teléfono",
+      "documentPlaceholder": "Número de documento",
       "birthDatePlaceholder": "Fecha de nacimiento",
-      "emailPlaceholder": "Correo electronico",
-      "passwordPlaceholder": "Contrasena",
-      "confirmPasswordPlaceholder": "Confirmar contrasena",
-      "submitButton": "Registrate ahora",
-      "hasAccount": "Ya tienes una cuenta?",
-      "loginButton": "Iniciar sesion",
-      "orRegisterWith": "o registrate con:",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "confirmPasswordPlaceholder": "Confirmar contraseña",
+      "submitButton": "Regístrate ahora",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "loginButton": "Iniciar sesión",
+      "orRegisterWith": "o regístrate con:",
       "termsText": "Al registrarse, acepta los",
-      "termsLink": "Terminos y condiciones",
+      "termsLink": "Términos y condiciones",
       "andText": "y la",
-      "privacyLink": "Politica de privacidad",
+      "privacyLink": "Política de privacidad",
       "captcha": {
-        "title": "Verificacion de seguridad",
+        "title": "Verificación de seguridad",
         "placeholder": "Ingresa el texto del captcha",
         "invalid": "Captcha incorrecto. Intenta de nuevo.",
         "regenerate": "Generar nuevo captcha"
@@ -87,30 +87,30 @@
         "nameRequired": "El nombre es obligatorio.",
         "fatherNameRequired": "El apellido paterno es obligatorio.",
         "motherNameRequired": "El apellido materno es obligatorio.",
-        "phoneRequired": "El telefono es obligatorio.",
-        "phoneMinLength": "El numero de telefono debe tener al menos 9 digitos.",
-        "documentRequired": "El numero de documento es obligatorio.",
+        "phoneRequired": "El teléfono es obligatorio.",
+        "phoneMinLength": "El número de teléfono debe tener al menos 9 dígitos.",
+        "documentRequired": "El número de documento es obligatorio.",
         "birthDateRequired": "La fecha de nacimiento es obligatoria.",
-        "emailRequired": "El correo electronico es obligatorio.",
-        "passwordRequired": "La contrasena es obligatoria.",
-        "passwordWeak": "La contrasena debe tener al menos 8 caracteres, una mayuscula, una minuscula, un numero y un simbolo.",
-        "confirmPasswordRequired": "La confirmacion de contrasena es obligatoria.",
-        "passwordMismatch": "Las contrasenas no coinciden.",
-        "termsRequired": "Debes aceptar los terminos y condiciones.",
+        "emailRequired": "El correo electrónico es obligatorio.",
+        "passwordRequired": "La contraseña es obligatoria.",
+        "passwordWeak": "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.",
+        "confirmPasswordRequired": "La confirmación de contraseña es obligatoria.",
+        "passwordMismatch": "Las contraseñas no coinciden.",
+        "termsRequired": "Debes aceptar los términos y condiciones.",
         "captchaInvalid": "El captcha es incorrecto.",
-        "generalError": "Error al registrarse. Por favor, intentelo de nuevo mas tarde."
+        "generalError": "Error al registrarse. Por favor, inténtelo de nuevo más tarde."
       }
     }
   },
   "controlPanel": {
     "title": "Panel de Control",
     "darkTheme": "Tema oscuro",
-    "logout": "Cerrar sesion",
+    "logout": "Cerrar sesión",
     "options": {
       "modifyProfile": "Modificar perfil",
-      "mySubscription": "Mi suscripcion",
+      "mySubscription": "Mi suscripción",
       "publishedSpaces": "Espacios publicados",
-      "subscriptionManagement": "Gestion de suscripciones",
+      "subscriptionManagement": "Gestión de suscripciones",
       "favoriteSpaces": "Espacios favoritos",
       "support": "Soporte",
       "reportsMade": "Reportes realizados"
@@ -118,37 +118,37 @@
   },
   "profile": {
     "title": "Mi Perfil",
-    "personalInfo": "Informacion Personal",
-    "contactInfo": "Informacion de Contacto",
-    "bankInfo": "Informacion Bancaria",
+    "personalInfo": "Información Personal",
+    "contactInfo": "Información de Contacto",
+    "bankInfo": "Información Bancaria",
     "fields": {
       "username": "Nombre de usuario",
       "fullName": "Nombre completo",
-      "email": "Correo electronico",
-      "phone": "Telefono",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
       "document": "Documento de identidad",
       "birthDate": "Fecha de nacimiento",
       "bankName": "Nombre del banco",
-      "accountNumber": "Numero de cuenta",
+      "accountNumber": "Número de cuenta",
       "cci": "CCI"
     }
   },
   "support": {
     "title": "Soporte y Ayuda",
     "email": {
-      "title": "Correo Electronico",
-      "description": "Escribenos a:"
+      "title": "Correo Electrónico",
+      "description": "Escríbenos a:"
     },
     "phone": {
-      "title": "Telefono",
-      "description": "Llamanos al:"
+      "title": "Teléfono",
+      "description": "Llámanos al:"
     },
     "contactForm": {
-      "title": "Envianos un mensaje",
+      "title": "Envíanos un mensaje",
       "subjectLabel": "Asunto",
       "subjectPlaceholder": "Describe brevemente tu consulta",
       "messageLabel": "Mensaje",
-      "messagePlaceholder": "Cuentanos como podemos ayudarte...",
+      "messagePlaceholder": "Cuéntanos cómo podemos ayudarte...",
       "submitButton": "Enviar mensaje",
       "successMessage": "Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.",
       "errorMessage": "Por favor completa todos los campos"
@@ -156,26 +156,26 @@
     "faq": {
       "title": "Preguntas Frecuentes",
       "q1": {
-        "question": "Como publico un espacio?",
-        "answer": "Ve a la seccion \"Publicar\" en el menu principal y completa el formulario con la informacion de tu espacio. Necesitaras fotos, descripcion, precio y ubicacion."
+        "question": "¿Cómo publico un espacio?",
+        "answer": "Ve a la sección \"Publicar\" en el menú principal y completa el formulario con la información de tu espacio. Necesitarás fotos, descripción, precio y ubicación."
       },
       "q2": {
-        "question": "Como funciona el sistema de reservas?",
-        "answer": "Puedes buscar espacios por ubicacion o categoria, seleccionar las fechas que necesitas y realizar tu reserva. Recibiras una confirmacion por correo."
+        "question": "¿Cómo funciona el sistema de reservas?",
+        "answer": "Puedes buscar espacios por ubicación o categoría, seleccionar las fechas que necesitas y realizar tu reserva. Recibirás una confirmación por correo."
       },
       "q3": {
-        "question": "Que incluye la suscripcion premium?",
-        "answer": "Con la suscripcion premium obtienes prioridad en las reservas, soporte prioritario y acceso anticipado a nuevas funcionalidades."
+        "question": "¿Qué incluye la suscripción premium?",
+        "answer": "Con la suscripción premium obtienes prioridad en las reservas, soporte prioritario y acceso anticipado a nuevas funcionalidades."
       }
     }
   },
   "subscription": {
-    "title": "Mi Suscripcion",
+    "title": "Mi Suscripción",
     "currentPlan": "Plan actual",
-    "noPlan": "Sin suscripcion activa",
+    "noPlan": "Sin suscripción activa",
     "subscribe": "Suscribirse",
     "renew": "Renovar",
-    "cancel": "Cancelar suscripcion",
+    "cancel": "Cancelar suscripción",
     "status": {
       "active": "Activa",
       "pending": "Pendiente",
@@ -183,7 +183,7 @@
       "cancelled": "Cancelada"
     },
     "plans": {
-      "basic": "Basico",
+      "basic": "Básico",
       "premium": "Premium",
       "professional": "Profesional"
     }
@@ -193,11 +193,11 @@
     "searchPlaceholder": "Buscar espacios...",
     "filters": {
       "title": "Filtros",
-      "category": "Categoria",
+      "category": "Categoría",
       "priceRange": "Rango de precio",
       "capacity": "Capacidad",
-      "minPrice": "Precio minimo",
-      "maxPrice": "Precio maximo",
+      "minPrice": "Precio mínimo",
+      "maxPrice": "Precio máximo",
       "apply": "Aplicar filtros",
       "clear": "Limpiar filtros"
     },
@@ -205,46 +205,46 @@
       "beachHouse": "Casa de playa",
       "countryHouse": "Casa de campo",
       "urbanHouse": "Casa urbana",
-      "elegantHall": "Salon elegante"
+      "elegantHall": "Salón elegante"
     },
     "card": {
-      "perDay": "por dia",
+      "perDay": "por día",
       "capacity": "Capacidad",
       "people": "personas",
       "viewDetails": "Ver detalles",
       "reserve": "Reservar"
     },
     "details": {
-      "description": "Descripcion",
+      "description": "Descripción",
       "amenities": "Comodidades",
-      "location": "Ubicacion",
-      "policies": "Politicas",
-      "reviews": "Resenas",
-      "noReviews": "Aun no hay resenas"
+      "location": "Ubicación",
+      "policies": "Políticas",
+      "reviews": "Reseñas",
+      "noReviews": "Aún no hay reseñas"
     },
     "publish": {
       "title": "Publicar Espacio",
       "step1": "Tipo de espacio",
-      "step2": "Ubicacion",
-      "step3": "Informacion basica",
-      "step4": "Descripcion",
+      "step2": "Ubicación",
+      "step3": "Información básica",
+      "step4": "Descripción",
       "step5": "Fotos",
       "step6": "Comodidades",
       "step7": "Precio",
       "step8": "Reglas",
-      "step9": "Configuracion IoT",
-      "step10": "Confirmacion",
+      "step9": "Configuración IoT",
+      "step10": "Confirmación",
       "submitButton": "Publicar Local",
-      "successMessage": "Espacio publicado exitosamente!",
+      "successMessage": "¡Espacio publicado exitosamente!",
       "letsStart": "Comencemos",
-      "back": "Atras",
+      "back": "Atrás",
       "next": "Siguiente",
       "stepOf": "Paso {current} de {total}"
     },
     "published": {
       "title": "Mis Espacios Publicados",
       "noSpaces": "No tienes espacios publicados",
-      "publishFirst": "Publica tu primer espacio!",
+      "publishFirst": "¡Publica tu primer espacio!",
       "actions": {
         "edit": "Editar",
         "monitor": "Monitorear",
@@ -287,11 +287,11 @@
   "notifications": {
     "title": "Notificaciones",
     "noNotifications": "No tienes notificaciones",
-    "noNotificationsHint": "Cuando recibas notificaciones, apareceran aqui",
-    "markAsRead": "Marcar como leida",
-    "markAllAsRead": "Marcar todas como leidas",
+    "noNotificationsHint": "Cuando recibas notificaciones, aparecerán aquí",
+    "markAsRead": "Marcar como leída",
+    "markAllAsRead": "Marcar todas como leídas",
     "delete": "Eliminar",
-    "notification": "notificacion",
+    "notification": "notificación",
     "types": {
       "reservation": "Reserva",
       "payment": "Pago",
@@ -305,7 +305,7 @@
     "today": "Hoy",
     "month": "Mes",
     "week": "Semana",
-    "day": "Dia",
+    "day": "Día",
     "noEvents": "No hay eventos programados",
     "legend": "Leyenda",
     "yourReservations": "Tus reservas",
@@ -316,8 +316,8 @@
     "title": "Comentarios",
     "writeComment": "Escribe un comentario...",
     "submitComment": "Enviar comentario",
-    "noComments": "Se el primero en comentar",
-    "rating": "Calificacion"
+    "noComments": "Sé el primero en comentar",
+    "rating": "Calificación"
   },
   "reports": {
     "title": "Reportes Realizados",
@@ -326,38 +326,38 @@
     "form": {
       "title": "Reportar Espacio",
       "reason": "Motivo del reporte",
-      "description": "Descripcion",
+      "description": "Descripción",
       "submit": "Enviar reporte"
     },
     "status": {
       "pending": "Pendiente",
-      "reviewing": "En revision",
+      "reviewing": "En revisión",
       "resolved": "Resuelto",
       "rejected": "Rechazado"
     }
   },
   "monitoring": {
     "title": "Panel de Monitoreo",
-    "subtitle": "Supervision en tiempo real de sensores y eventos",
+    "subtitle": "Supervisión en tiempo real de sensores y eventos",
     "live": "En vivo",
     "liveMonitoring": "Monitoreo en vivo",
     "history": "Historial",
     "totalReadings": "Total Lecturas",
-    "maxCapacity": "Capacidad Max.",
+    "maxCapacity": "Capacidad Máx.",
     "alertsToday": "Alertas Hoy",
     "state": "Estado",
     "active": "Activo",
-    "lastActivity": "Ultima Actividad",
-    "lastReadings": "Ultimas 5 lecturas",
+    "lastActivity": "Última Actividad",
+    "lastReadings": "Últimas 5 lecturas",
     "systemNormal": "Sistema Operando Normalmente",
     "noIncidentsDetected": "No se han detectado incidencias en este local",
     "sensors": {
       "occupancy": "Aforo Actual",
       "occupancyCapacity": "Capacidad del espacio",
       "noise": "Nivel de Ruido",
-      "noiseMax": "Ruido maximo registrado",
+      "noiseMax": "Ruido máximo registrado",
       "smoke": "Detector de Humo",
-      "smokeStatus": "Estado de deteccion",
+      "smokeStatus": "Estado de detección",
       "access": "Zonas Restringidas",
       "accessControl": "Control de accesos",
       "monitoring": "Monitoreando",
@@ -369,13 +369,13 @@
     "alerts": {
       "smokeAlert": "Alerta de Humo",
       "noiseAlert": "Alerta de Ruido",
-      "capacityUpdate": "Actualizacion de Aforo",
+      "capacityUpdate": "Actualización de Aforo",
       "unauthorizedAccess": "Acceso No Autorizado"
     },
     "status": {
       "normal": "Normal",
       "warning": "Advertencia",
-      "critical": "Critico"
+      "critical": "Crítico"
     },
     "incidents": {
       "title": "Historial de Incidentes",
@@ -383,11 +383,11 @@
     }
   },
   "localDetail": {
-    "maxCapacity": "Capacidad maxima",
+    "maxCapacity": "Capacidad máxima",
     "people": "personas",
     "owner": "Propietario",
-    "description": "Descripcion",
-    "features": "Caracteristicas",
+    "description": "Descripción",
+    "features": "Características",
     "options": "Opciones",
     "viewComments": "Ver comentarios",
     "reportSpace": "Reportar espacio",
@@ -401,7 +401,7 @@
     "endDateTime": "Fecha y hora de fin",
     "startDateError": "Fecha debe ser mayor o igual al momento actual",
     "endDateError": "Fecha fin debe ser posterior a la fecha de inicio",
-    "paymentInfo": "Informacion de Pago",
+    "paymentInfo": "Información de Pago",
     "accountNumber": "Nro. cuenta",
     "total": "Total",
     "attachVoucher": "Adjuntar voucher",
@@ -409,14 +409,14 @@
     "attached": "Adjuntado",
     "confirmReservation": "Confirmar Reserva",
     "reservationSuccess": "Reserva realizada correctamente",
-    "reservationError": "Error al reservar el local. Por favor, intentelo de nuevo mas tarde.",
+    "reservationError": "Error al reservar el local. Por favor, inténtelo de nuevo más tarde.",
     "edgeNodeAssigned": "Nodo edge asignado correctamente",
     "edgeNodeUpdated": "Nodo edge actualizado correctamente",
-    "edgeNodeError": "Ocurrio un error al asignar/actualizar el nodo edge."
+    "edgeNodeError": "Ocurrió un error al asignar/actualizar el nodo edge."
   },
   "districtSearch": {
     "title": "Resultados por Distrito",
-    "searchByLocation": "Busqueda por ubicacion:",
+    "searchByLocation": "Búsqueda por ubicación:",
     "spacesFound": "Espacios encontrados",
     "advancedFilters": "Filtros Avanzados",
     "noSpacesFound": "No se encontraron espacios",
@@ -431,22 +431,22 @@
     "options": "Opciones",
     "viewComments": "Ver comentarios",
     "reportSpace": "Reportar espacio",
-    "premiumNotice": "Debido a que lo reservo un usuario premium, no se puede modificar el horario de reserva.",
+    "premiumNotice": "Debido a que lo reservó un usuario premium, no se puede modificar el horario de reserva.",
     "modifySchedule": "Modificar Horario",
     "minutesToPostpone": "Minutos a posponer (10-60)",
     "postponeReservation": "Posponer Reserva",
     "paymentVoucher": "Voucher de Pago",
     "cancelReservation": "Cancelar Reserva",
-    "noImages": "No hay imagenes disponibles para este local.",
+    "noImages": "No hay imágenes disponibles para este local.",
     "renter": "Arrendador de tu espacio:",
     "owner": "Propietario:",
     "reservationUpdated": "Reserva actualizada correctamente",
-    "postponeError": "Error al posponer la reserva. Por favor, intentelo de nuevo mas tarde.",
+    "postponeError": "Error al posponer la reserva. Por favor, inténtelo de nuevo más tarde.",
     "reservationCancelled": "Reserva cancelada correctamente",
-    "cancelError": "Error al cancelar la reserva. Por favor, intentelo de nuevo mas tarde."
+    "cancelError": "Error al cancelar la reserva. Por favor, inténtelo de nuevo más tarde."
   },
   "subscriptionPurchase": {
-    "title": "Compra de Suscripcion",
+    "title": "Compra de Suscripción",
     "planSummary": "Resumen del Plan",
     "selectedPlan": "Plan seleccionado:",
     "price": "Precio:",
@@ -458,25 +458,25 @@
     "toComplete": "Para completar tu compra, adjunta la foto del voucher de pago.",
     "attachVoucher": "Adjuntar imagen del voucher",
     "clickToSelect": "Haz clic para seleccionar un archivo",
-    "purchaseSubscription": "Comprar suscripcion",
-    "voucherValidation": "Tu voucher sera validada para culminar la compra de tu suscripcion",
-    "purchaseError": "Error al realizar la compra de la suscripcion"
+    "purchaseSubscription": "Comprar suscripción",
+    "voucherValidation": "Tu voucher será validada para culminar la compra de tu suscripción",
+    "purchaseError": "Error al realizar la compra de la suscripción"
   },
   "filtersPage": {
-    "title": "Personaliza Tu Busqueda",
+    "title": "Personaliza Tu Búsqueda",
     "subtitle": "Encuentra el espacio perfecto con nuestros filtros avanzados",
-    "category": "Categoria",
+    "category": "Categoría",
     "categorySubtitle": "Selecciona el tipo de espacio",
     "capacity": "Capacidad",
-    "capacitySubtitle": "Cuantas personas asistiran?",
+    "capacitySubtitle": "¿Cuántas personas asistirán?",
     "selectedFilters": "Filtros Seleccionados",
-    "categoryLabel": "Categoria:",
+    "categoryLabel": "Categoría:",
     "select": "Selecciona",
     "people": "personas",
     "applyFilters": "Aplicar Filtros",
     "capacityOptions": {
-      "intimate": "Intimo",
-      "small": "Pequeno",
+      "intimate": "Íntimo",
+      "small": "Pequeño",
       "medium": "Mediano",
       "large": "Grande",
       "veryLarge": "Muy Grande",
@@ -490,27 +490,27 @@
     "advancedFilters": "Filtros Avanzados"
   },
   "filtersSearchPage": {
-    "title": "Resultados de Busqueda",
+    "title": "Resultados de Búsqueda",
     "appliedFilters": "Filtros aplicados:",
     "spacesFound": "Espacios encontrados",
     "modifyFilters": "Modificar Filtros",
     "noSpacesFound": "No se encontraron espacios",
-    "tryAdjustFilters": "Intenta ajustar los filtros para obtener mas resultados",
+    "tryAdjustFilters": "Intenta ajustar los filtros para obtener más resultados",
     "changeFilters": "Cambiar Filtros",
-    "categoryNotFound": "Categoria no encontrada"
+    "categoryNotFound": "Categoría no encontrada"
   },
   "updateProfile": {
     "welcome": "Bienvenido,",
-    "customizeInfo": "Personaliza tu informacion personal",
-    "personalInfo": "Informacion Personal",
+    "customizeInfo": "Personaliza tu información personal",
+    "personalInfo": "Información Personal",
     "name": "Nombre",
     "fatherName": "Apellido paterno",
     "motherName": "Apellido materno",
     "dateOfBirth": "Fecha de nacimiento",
-    "contactInfo": "Informacion de Contacto",
-    "phone": "Telefono",
-    "documentNumber": "Numero de documento",
-    "bankInfo": "Informacion Bancaria",
+    "contactInfo": "Información de Contacto",
+    "phone": "Teléfono",
+    "documentNumber": "Número de documento",
+    "bankInfo": "Información Bancaria",
     "bankAccount": "Cuenta bancaria",
     "interbankAccount": "Cuenta interbancaria",
     "saveChanges": "Guardar todos los cambios",
@@ -519,11 +519,11 @@
   },
   "favorites": {
     "subtitle": "Encuentra con facilidad tu espacio ideal entre tus favoritos",
-    "noFavorites": "No tienes favoritos aun."
+    "noFavorites": "No tienes favoritos aún."
   },
   "publishedSpaces": {
     "title": "Espacios publicados",
-    "noSpaces": "No tienes espacios publicados aun.",
+    "noSpaces": "No tienes espacios publicados aún.",
     "perHour": "por hora",
     "viewDetails": "Ver detalles",
     "monitor": "Monitorear"
@@ -534,22 +534,22 @@
     "noReports": "No tienes reportes realizados."
   },
   "profileSubscription": {
-    "title": "Estado de suscripcion",
-    "loading": "Cargando datos de suscripcion...",
-    "getPremium": "Obten una suscripcion premium",
-    "premiumBenefit": "Tendras preferencias al momento de reservar. Por ejemplo, no podran posponer tu horario de reserva.",
+    "title": "Estado de suscripción",
+    "loading": "Cargando datos de suscripción...",
+    "getPremium": "Obtén una suscripción premium",
+    "premiumBenefit": "Tendrás preferencias al momento de reservar. Por ejemplo, no podrán posponer tu horario de reserva.",
     "buyNow": "Comprar ahora",
-    "pendingValidation": "Tu suscripcion esta pendiente de validacion",
+    "pendingValidation": "Tu suscripción está pendiente de validación",
     "plan": "Plan:",
-    "voucherValidating": "Tu voucher esta siendo validado para culminar la compra de tu suscripcion.",
-    "activeSubscription": "Tu suscripcion esta activa!",
-    "enjoyBenefits": "Disfruta de todos los beneficios premium de tu suscripcion."
+    "voucherValidating": "Tu voucher está siendo validado para culminar la compra de tu suscripción.",
+    "activeSubscription": "¡Tu suscripción está activa!",
+    "enjoyBenefits": "Disfruta de todos los beneficios premium de tu suscripción."
   },
   "subscriptionsManagement": {
     "title": "Control de suscripciones pendientes",
     "loading": "Cargando suscripciones...",
     "voucherAlt": "Voucher de pago",
-    "activate": "Activar suscripcion",
+    "activate": "Activar suscripción",
     "activated": "Activada",
     "noPending": "No hay suscripciones pendientes."
   },
@@ -557,114 +557,116 @@
     "title": "Publicar comentario",
     "writeLabel": "Escribe tu comentario:",
     "placeholder": "Comparte tu experiencia con este espacio...",
-    "rating": "Calificacion:",
+    "rating": "Calificación:",
     "publishButton": "Publicar comentario",
     "success": "Comentario publicado correctamente",
-    "error": "Error al publicar el comentario. Por favor, intentalo de nuevo mas tarde."
+    "error": "Error al publicar el comentario. Por favor, inténtalo de nuevo más tarde."
   },
   "publishSteps": {
     "noBankAccounts": "No tienes cuentas bancarias registradas. Por favor, registra una cuenta bancaria para poder recibir pagos por la reserva de tu local.",
     "step1": {
       "title": "Empezar a usar AlquilaFacil es muy sencillo",
-      "subtitle": "Completa los siguientes pasos para registrar tu espacio en la aplicacion.",
+      "subtitle": "Completa los siguientes pasos para registrar tu espacio en la aplicación.",
       "describe": "1. Describe tu espacio",
-      "describeDesc": "Comparte algunos datos basicos",
+      "describeDesc": "Comparte algunos datos básicos",
       "standOut": "2. Haz que destaque",
-      "standOutDesc": "Agrega una foto y un titulo a tu espacio, nosotros nos encargamos del resto",
+      "standOutDesc": "Agrega una foto y un título a tu espacio, nosotros nos encargamos del resto",
       "finishPublish": "3. Terminar y publicar",
-      "finishPublishDesc": "Agrega las ultimas configuraciones y publica tu espacio"
+      "finishPublishDesc": "Agrega las últimas configuraciones y publica tu espacio"
     },
     "step2": {
       "title": "Paso 1: Describe tu espacio",
-      "subtitle": "En este paso, te preguntaremos que tipo de propiedad tienes. A continuacion, indicanos la ubicacion y algunos detalles mas."
+      "subtitle": "En este paso, te preguntaremos qué tipo de propiedad tienes. A continuación, indícanos la ubicación y algunos detalles más."
     },
     "step3": {
-      "title": "Cual de estas opciones describe mejor tu espacio?"
+      "title": "¿Cuál de estas opciones describe mejor tu espacio?"
     },
     "step4": {
-      "title": "Confirma tu direccion",
-      "subtitle": "Sera de utilidad para que otros usuarios puedan encontrar tu espacio con facilidad.",
-      "country": "Pais",
-      "countryPlaceholder": "Ingresa tu pais",
+      "title": "Confirma tu dirección",
+      "subtitle": "Será de utilidad para que otros usuarios puedan encontrar tu espacio con facilidad.",
+      "country": "País",
+      "countryPlaceholder": "Ingresa tu país",
       "department": "Departamento",
-      "departmentPlaceholder": "Ingresa tu departamento",
+      "departmentPlaceholder": "Selecciona tu departamento",
       "district": "Distrito",
-      "districtPlaceholder": "Ingresa tu distrito",
-      "address": "Direccion",
-      "addressPlaceholder": "Ingresa tu direccion (Ejemplo: Av. Principal 123)"
+      "districtPlaceholder": "Selecciona tu distrito",
+      "address": "Dirección",
+      "addressPlaceholder": "Ingresa tu dirección (Ejemplo: Av. Principal 123)"
     },
     "step5": {
       "title": "Paso 2: Haz que tu espacio destaque",
-      "subtitle": "En este paso, deberas agregar la foto de tu espacio. Luego, le anadiras un titulo y una descripcion."
+      "subtitle": "En este paso, deberás agregar la foto de tu espacio. Luego, le añadirás un título y una descripción."
     },
     "step6": {
       "title": "Agrega fotos de tu espacio",
-      "subtitle": "Selecciona una imagen de tu galeria para que represente.",
-      "addImage": "Anadir una imagen",
-      "selectedImages": "Imagenes seleccionadas:"
+      "subtitle": "Selecciona una imagen de tu galería para que represente.",
+      "addImage": "Añadir una imagen",
+      "selectedImages": "Imágenes seleccionadas:"
     },
     "step7": {
-      "title": "Ahora, anade los detalles de tu espacio",
-      "subtitle": "Los titulos cortos funcionan mejor. No te preocupes, puedes modificarlo mas adelante.",
+      "title": "Ahora, añade los detalles de tu espacio",
+      "subtitle": "Los títulos cortos funcionan mejor. No te preocupes, puedes modificarlo más adelante.",
       "name": "Nombre",
       "namePlaceholder": "Ingresa el nombre de tu local",
-      "description": "Descripcion",
-      "descriptionPlaceholder": "Ingresa la descripcion de tu local",
+      "description": "Descripción",
+      "descriptionPlaceholder": "Ingresa la descripción de tu local",
       "capacity": "Aforo",
       "capacityPlaceholder": "Ingresa el aforo",
-      "features": "Caracteristicas",
-      "featuresPlaceholder": "Agregar caracteristica (Dimensiones del local, servicios, etc.)",
-      "delete": "Eliminar"
+      "features": "Características",
+      "featuresPlaceholder": "Agregar característica (Dimensiones del local, servicios, etc.)",
+      "delete": "Eliminar",
+      "quickFeatures": "Características rápidas",
+      "addFeature": "Agregar"
     },
     "step8": {
       "title": "Paso 3: Terminar y publicar",
-      "subtitle": "Por ultimo, vas a elegir el precio por hora de reserva y publicar tu espacio."
+      "subtitle": "Por último, vas a elegir el precio por hora de reserva y publicar tu espacio."
     },
     "step9": {
       "title": "Ponle un precio a tu espacio",
-      "subtitle": "Podras cambiarlo en cualquier momento.",
+      "subtitle": "Podrás cambiarlo en cualquier momento.",
       "perHour": "Por hora"
     },
     "step10": {
-      "title": "Es todo!",
-      "subtitle": "Esto es lo que veran los demas.",
+      "title": "¡Es todo!",
+      "subtitle": "Esto es lo que verán los demás.",
       "perHour": "/hora",
-      "errorTitle": "Ups!",
-      "errorSubtitle": "Asegurate de completar todos los campos necesarios."
+      "errorTitle": "¡Ups!",
+      "errorSubtitle": "Asegúrate de completar todos los campos necesarios."
     }
   },
   "commentsPage": {
     "title": "Comentarios del Espacio",
     "comment": "comentario",
     "comments": "comentarios",
-    "noComments": "No hay comentarios aun",
-    "beFirst": "Se el primero en dejar un comentario sobre este espacio"
+    "noComments": "No hay comentarios aún",
+    "beFirst": "Sé el primero en dejar un comentario sobre este espacio"
   },
   "reportPage": {
     "title": "Reportar Espacio",
-    "reportTitle": "Titulo del reporte",
+    "reportTitle": "Título del reporte",
     "reportTitlePlaceholder": "Ej: Instalaciones en mal estado",
-    "problemDescription": "Descripcion del problema",
-    "problemDescriptionPlaceholder": "Describe detalladamente el problema o situacion que deseas reportar...",
+    "problemDescription": "Descripción del problema",
+    "problemDescriptionPlaceholder": "Describe detalladamente el problema o situación que deseas reportar...",
     "sendReport": "Enviar Reporte",
-    "titleRequired": "El titulo es obligatorio.",
-    "descriptionRequired": "La descripcion es obligatoria.",
+    "titleRequired": "El título es obligatorio.",
+    "descriptionRequired": "La descripción es obligatoria.",
     "reportSuccess": "Reporte enviado correctamente",
-    "reportError": "Error al enviar el reporte. Por favor, intentelo de nuevo mas tarde."
+    "reportError": "Error al enviar el reporte. Por favor, inténtelo de nuevo más tarde."
   },
   "errors": {
-    "notFound": "Pagina no encontrada",
+    "notFound": "Página no encontrada",
     "unauthorized": "No autorizado",
     "serverError": "Error del servidor",
-    "networkError": "Error de conexion",
+    "networkError": "Error de conexión",
     "goHome": "Ir al inicio",
-    "goBack": "Volver atras",
-    "somethingWrong": "Algo salio mal!",
-    "unexpectedError": "Lo sentimos, ha ocurrido un error inesperado. Por favor, intenta nuevamente o regresa a la pagina principal."
+    "goBack": "Volver atrás",
+    "somethingWrong": "¡Algo salió mal!",
+    "unexpectedError": "Lo sentimos, ha ocurrido un error inesperado. Por favor, intenta nuevamente o regresa a la página principal."
   },
   "language": {
     "select": "Idioma",
-    "es": "Espanol",
-    "en": "Ingles"
+    "es": "Español",
+    "en": "Inglés"
   }
 }
