@@ -22,10 +22,10 @@ const emit = defineEmits([
       id="price"
       :value="props.price"
       @input="emit('update:price', $event.target.value)"
-      class="border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-4 text-right text-3xl font-bold max-w-50 bg-(--background-color) text-(--text-color) focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+      class="border border-gray-300 rounded-lg px-4 py-4 text-right text-3xl max-w-50 bg-(--background-color) text-(--text-color)"
       min="1"
-      placeholder="0"
     />
   </div>
-  <p class="text-lg text-center text-gray-500 dark:text-gray-400 mt-2">{{ t('publishSteps.step9.perHour') }}</p>
+  <p class="text-lg text-center text-(--text-color) opacity-70">{{ t('publishSteps.step9.perHour') }}</p>
+
 </template>

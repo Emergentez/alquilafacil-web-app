@@ -176,7 +176,6 @@ onMounted(() => {
 // Watch para actualizar el departamento
 watch(selectedDepartment, (newVal) => {
   emit('update:city', newVal);
-  // Resetear distrito cuando cambia el departamento
   selectedDistrict.value = '';
   emit('update:district', '');
 });
@@ -202,63 +201,66 @@ watch(() => props.district, (newVal) => {
 
 <template>
   <h1 class="text-3xl text-center font-semibold text-(--text-color)">{{ t('publishSteps.step4.title') }}</h1>
-  <p class="text-lg text-center text-(--text-color)">{{ t('publishSteps.step4.subtitle') }}</p>
+  <p class="text-lg text-center text-(--text-color) opacity-70">{{ t('publishSteps.step4.subtitle') }}</p>
 
-  <!-- País (fijo Perú) -->
-  <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="country" class="bg-(--background-color) w-12 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step4.country') }}</label>
-    <input
-      type="text"
-      id="country"
-      value="Perú"
-      disabled
-      class="border border-gray-300 dark:border-gray-600 rounded px-4 py-4 text-(--text-color) bg-gray-100 dark:bg-gray-700 cursor-not-allowed"
-    />
-  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-160 mt-4">
+    <!-- País (fijo Perú) -->
+    <div class="flex flex-col text-(--text-color)">
+      <label for="country" class="text-sm font-semibold mb-2 opacity-80">{{ t('publishSteps.step4.country') }}</label>
+      <input
+        type="text"
+        id="country"
+        value="Perú"
+        disabled
+        class="border border-gray-300 rounded-lg px-4 py-3 text-(--text-color) bg-(--button-color) cursor-not-allowed opacity-70"
+      />
+    </div>
 
-  <!-- Departamento (dropdown) -->
-  <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="department" class="bg-(--background-color) w-33 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step4.department') }}</label>
-    <select
-      id="department"
-      v-model="selectedDepartment"
-      class="border border-gray-300 dark:border-gray-600 rounded px-4 py-4 text-(--text-color) bg-(--background-color) cursor-pointer appearance-none"
-    >
-      <option value="" disabled>{{ t('publishSteps.step4.departmentPlaceholder') }}</option>
-      <option v-for="dept in departments" :key="dept" :value="dept">{{ dept }}</option>
-    </select>
-  </div>
+    <!-- Departamento (dropdown) -->
+    <div class="flex flex-col text-(--text-color)">
+      <label for="department" class="text-sm font-semibold mb-2 opacity-80">{{ t('publishSteps.step4.department') }}</label>
+      <select
+        id="department"
+        v-model="selectedDepartment"
+        class="border border-gray-300 rounded-lg px-4 py-3 text-(--text-color) bg-(--background-color) cursor-pointer"
+      >
+        <option value="" disabled class="text-gray-400">{{ t('publishSteps.step4.departmentPlaceholder') }}</option>
+        <option v-for="dept in departments" :key="dept" :value="dept">{{ dept }}</option>
+      </select>
+    </div>
 
-  <!-- Distrito (dropdown) -->
-  <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="district" class="bg-(--background-color) w-19 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step4.district') }}</label>
-    <select
-      id="district"
-      v-model="selectedDistrict"
-      :disabled="!selectedDepartment"
-      class="border border-gray-300 dark:border-gray-600 rounded px-4 py-4 text-(--text-color) bg-(--background-color) cursor-pointer appearance-none disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      <option value="" disabled>{{ t('publishSteps.step4.districtPlaceholder') }}</option>
-      <option v-for="dist in availableDistricts" :key="dist" :value="dist">{{ dist }}</option>
-    </select>
-  </div>
+    <!-- Distrito (dropdown) -->
+    <div class="flex flex-col text-(--text-color)">
+      <label for="district" class="text-sm font-semibold mb-2 opacity-80">{{ t('publishSteps.step4.district') }}</label>
+      <select
+        id="district"
+        v-model="selectedDistrict"
+        :disabled="!selectedDepartment"
+        class="border border-gray-300 rounded-lg px-4 py-3 text-(--text-color) bg-(--background-color) cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <option value="" disabled class="text-gray-400">{{ t('publishSteps.step4.districtPlaceholder') }}</option>
+        <option v-for="dist in availableDistricts" :key="dist" :value="dist">{{ dist }}</option>
+      </select>
+    </div>
 
-  <!-- Dirección (texto libre) -->
-  <div class="flex flex-col w-full max-w-140 text-(--text-color)">
-    <label for="street" class="bg-(--background-color) w-23 text-lg font-semibold relative top-4 left-2 px-2">{{ t('publishSteps.step4.address') }}</label>
-    <input
-      type="text"
-      id="street"
-      :value="props.street"
-      @input="emit('update:street', $event.target.value)"
-      class="border border-gray-300 dark:border-gray-600 rounded px-4 py-4 text-(--text-color) bg-(--background-color)"
-      :placeholder="t('publishSteps.step4.addressPlaceholder')"
-    />
+    <!-- Dirección (texto libre) - ocupa todo el ancho -->
+    <div class="flex flex-col text-(--text-color) md:col-span-2">
+      <label for="street" class="text-sm font-semibold mb-2 opacity-80">{{ t('publishSteps.step4.address') }}</label>
+      <input
+        type="text"
+        id="street"
+        :value="props.street"
+        @input="emit('update:street', $event.target.value)"
+        class="border border-gray-300 rounded-lg px-4 py-3 text-(--text-color) bg-(--background-color)"
+        :placeholder="t('publishSteps.step4.addressPlaceholder')"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
 select {
+  appearance: none;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.75rem center;
   background-repeat: no-repeat;
