@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import NavbarComponent from '@/public/components/Navbar.component.vue'
 import Step1Component from '../components/publish-steps/Step1.component.vue';
@@ -18,7 +18,7 @@ import { LocalRequest } from '../model/local.request';
 import { LocalResponse } from '../model/local.response';
 import { useAuthenticationStore } from '../../auth/services/authentication.store';
 import FooterComponent from '../../public/components/Footer.component.vue';
-import { ChevronLeft, ChevronRight, Check } from 'lucide-vue-next';
+import { ChevronLeft, ChevronRight, Check, AlertCircle } from 'lucide-vue-next';
 
 const { t } = useI18n();
 const router = useRouter();
@@ -40,9 +40,98 @@ const localData = ref({
 })
 
 const pageNumber = ref(1);
+const validationError = ref('');
+
+const validateStep = (step) => {
+  validationError.value = '';
+  switch (step) {
+    case 3:
+      if (!localData.value.localCategoryId || localData.value.localCategoryId < 1) {
+        validationError.value = t('publishSteps.validation.categoryRequired');
+        return false;
+      }
+      break;
+    case 4:
+      if (!localData.value.city || localData.value.city.trim() === '') {
+        validationError.value = t('publishSteps.validation.departmentRequired');
+        return false;
+      }
+      if (!localData.value.district || localData.value.district.trim() === '') {
+        validationError.value = t('publishSteps.validation.districtRequired');
+        return false;
+      }
+      if (!localData.value.street || localData.value.street.trim() === '') {
+        validationError.value = t('publishSteps.validation.addressRequired');
+        return false;
+      }
+      break;
+    case 6:
+      if (!localData.value.photoUrls || localData.value.photoUrls.length === 0) {
+        validationError.value = t('publishSteps.validation.photoRequired');
+        return false;
+      }
+      break;
+    case 7:
+      if (!localData.value.localName || localData.value.localName.trim() === '') {
+        validationError.value = t('publishSteps.validation.nameRequired');
+        return false;
+      }
+      if (!localData.value.descriptionMessage || localData.value.descriptionMessage.trim() === '') {
+        validationError.value = t('publishSteps.validation.descriptionRequired');
+        return false;
+      }
+      if (!localData.value.capacity || parseInt(localData.value.capacity) <= 0) {
+        validationError.value = t('publishSteps.validation.capacityRequired');
+        return false;
+      }
+      if (!localData.value.features || localData.value.features.length === 0) {
+        validationError.value = t('publishSteps.validation.featuresRequired');
+        return false;
+      }
+      break;
+    case 9:
+      if (!localData.value.price || parseFloat(localData.value.price) <= 0) {
+        validationError.value = t('publishSteps.validation.priceRequired');
+        return false;
+      }
+      break;
+  }
+  return true;
+};
+
+const canProceed = computed(() => {
+  const step = pageNumber.value;
+  switch (step) {
+    case 3:
+      return localData.value.localCategoryId && localData.value.localCategoryId >= 1;
+    case 4:
+      return localData.value.city && localData.value.city.trim() !== '' &&
+             localData.value.district && localData.value.district.trim() !== '' &&
+             localData.value.street && localData.value.street.trim() !== '';
+    case 6:
+      return localData.value.photoUrls && localData.value.photoUrls.length > 0;
+    case 7:
+      return localData.value.localName && localData.value.localName.trim() !== '' &&
+             localData.value.descriptionMessage && localData.value.descriptionMessage.trim() !== '' &&
+             localData.value.capacity && parseInt(localData.value.capacity) > 0 &&
+             localData.value.features && localData.value.features.length > 0;
+    case 9:
+      return localData.value.price && parseFloat(localData.value.price) > 0;
+    default:
+      return true;
+  }
+});
 
 const changePage = (number) => {
   const nextPage = pageNumber.value + number;
+
+  // If going forward, validate current step first
+  if (number > 0 && !validateStep(pageNumber.value)) {
+    return;
+  }
+
+  validationError.value = '';
+
   if (nextPage > 0 && nextPage <= 10) {
     pageNumber.value = nextPage;
     console.log(localData.value)
@@ -108,13 +197,28 @@ const publishLocal = async () => {
     <Step8Component v-if="pageNumber === 8" />
     <Step9Component v-if="pageNumber === 9" v-model:price="localData.price" />
 
+    <!-- Validation error message -->
+    <div v-if="validationError" class="flex items-center gap-2 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600 max-w-3xl">
+      <AlertCircle :size="20" />
+      <span>{{ validationError }}</span>
+    </div>
+
     <!-- Navigation buttons (steps 2-9) -->
     <div v-if="pageNumber > 1 && pageNumber < 10" class="flex gap-4 mt-10">
       <button @click="changePage(-1)" class="bg-(--background-card-color) text-(--text-color) rounded-lg px-8 md:px-24 py-4 text-lg font-semibold border-2 border-(--secondary-color) hover:border-(--secondary-color-hover) hover:cursor-pointer transition-colors flex items-center gap-2">
         <ChevronLeft :size="20" />
         {{ t('spaces.publish.back') }}
       </button>
-      <button @click="changePage(1)" class="bg-(--secondary-color) text-white rounded-lg px-8 md:px-24 py-4 text-lg font-semibold hover:bg-(--secondary-color-hover) hover:cursor-pointer transition-colors flex items-center gap-2">
+      <button
+        @click="changePage(1)"
+        :disabled="!canProceed"
+        :class="[
+          'rounded-lg px-8 md:px-24 py-4 text-lg font-semibold transition-colors flex items-center gap-2',
+          canProceed
+            ? 'bg-(--secondary-color) text-white hover:bg-(--secondary-color-hover) hover:cursor-pointer'
+            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+        ]"
+      >
         {{ t('spaces.publish.next') }}
         <ChevronRight :size="20" />
       </button>

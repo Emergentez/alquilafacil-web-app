@@ -564,6 +564,18 @@
   },
   "publishSteps": {
     "noBankAccounts": "No tienes cuentas bancarias registradas. Por favor, registra una cuenta bancaria para poder recibir pagos por la reserva de tu local.",
+    "validation": {
+      "categoryRequired": "Debes seleccionar una categoría para tu espacio.",
+      "departmentRequired": "El departamento es obligatorio.",
+      "districtRequired": "El distrito es obligatorio.",
+      "addressRequired": "La dirección es obligatoria.",
+      "photoRequired": "Debes agregar al menos una foto de tu espacio.",
+      "nameRequired": "El nombre del espacio es obligatorio.",
+      "descriptionRequired": "La descripción es obligatoria.",
+      "capacityRequired": "El aforo debe ser mayor a 0.",
+      "featuresRequired": "Debes agregar al menos una característica.",
+      "priceRequired": "El precio debe ser mayor a 0."
+    },
     "step1": {
       "title": "Empezar a usar AlquilaFacil es muy sencillo",
       "subtitle": "Completa los siguientes pasos para registrar tu espacio en la aplicación.",
